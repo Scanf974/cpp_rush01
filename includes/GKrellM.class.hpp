@@ -43,6 +43,7 @@ class	GKrellM
 		void		show( void );
 		void		render(int lib);
 
+
 	private:
 		GKrellM(GKrellM const & src);
 		GKrellM		& operator=(GKrellM const & right);
