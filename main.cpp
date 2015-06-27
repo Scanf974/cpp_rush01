@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 10:46:39 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 00:45:07 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 01:07:08 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,24 @@ void	sysinfint(char const *str)
 
 int		main(int ac, char **av)
 {
+	int		ll;
 	GKrellM				g(ac, av);
 	AModule *host = new Hostname(0, 0);
 	AModule *date = new Date(1, 0);
 	AModule *os = new Osinfo(0, 1);
 
+	std::cout << "0: Consol" << std::endl;
+	std::cout << "1: Graphic" << std::endl;
+	std::cin >> ll;
+
 	g.addModule(host);
 	g.addModule(date);
 	g.addModule(os);
-	g.init_curses();
-	g.render(0);
-//	g.show();
+	if (ll == 0)
+		g.init_curses();
+	else
+		g.init_Qt(ac, av);
+	g.render(ll);
 
  	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 14:44:31 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 01:00:24 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 01:05:44 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void			GKrellM::render(int lib) {
 			vBox->addStretch(3);
 			groupBox->setLayout(vBox);
 		}
+		this->show();
 	}
 }
 
