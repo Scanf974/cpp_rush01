@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 16:36:26 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/27 17:51:38 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/27 17:55:10 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,12 @@ void                Date::getInfos(void) {
 	result = std::string(buffer);
 	this->_time = result;
 	return ;
+}
+
+void				Date::renderNcurses(void) const {
+	std::cout << "Time: " << this->_time << std::endl;
+}
+
+void				Date::renderQt(void) const {
+
 }
