@@ -23,6 +23,8 @@ public:
 
 private:
 	Date( Date const & src );
+
+	std::string		_time;
 };
 
 #endif
