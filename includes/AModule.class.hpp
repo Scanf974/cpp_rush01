@@ -27,8 +27,9 @@ class AModule : public IMonitorModule, public IMonitorDisplay
 		int				getX(void) const;
 		int				getY(void) const;
 		std::string		getName(void) const;
-		
+
 		virtual void	getInfos(void) = 0;
+		virtual char const	*printInfos( void ) const = 0;	
 		virtual void	renderNcurses( void ) const = 0;
 		virtual void	renderQt( void ) const = 0;
 

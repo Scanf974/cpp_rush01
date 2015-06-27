@@ -89,9 +89,18 @@ void			GKrellM::render(int lib) {
 	{
 		for (; beg != end; beg++)
 		{
+			(*beg)->getInfos();
 			QVBoxLayout *vBox = new QVBoxLayout;
 			QGroupBox *groupBox = new QGroupBox( QString::fromStdString((*beg)->getName()) );
 			this->_grid->addWidget(groupBox, (*beg)->getX(), (*beg)->getY());
+
+			// QLabel *Label = new QLabel("Test :");
+			// vBox->addWidget(Label);
+			QLabel *name = new QLabel( QString::fromStdString((*beg)->printInfos()));
+			vBox->addWidget(name);
+
+			vBox->addStretch(3);
+			groupBox->setLayout(vBox);
 		}
 	}
 }

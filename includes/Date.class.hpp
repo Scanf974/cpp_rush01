@@ -26,6 +26,7 @@ class Date : public AModule
 		std::string		getTime(void) const;
 
 		virtual void	getInfos(void);
+		virtual char const 	*printInfos(void) const;
 		virtual void	renderNcurses( void ) const;
 		virtual void	renderQt( void ) const;
 

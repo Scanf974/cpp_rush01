@@ -15,7 +15,7 @@
 #include <ncurses.h>
 
 /*--------------- Constructors --------------*/
-Date::Date(int x, int y) : AModule("Date", x, y) {
+Date::Date(int x, int y) : AModule("Date/Time", x, y) {
     //std::cout << "Date: Default constructor" << std::endl;
     return ;
 }
@@ -56,6 +56,16 @@ void                Date::getInfos(void) {
 	result = std::string(buffer);
 	this->_time = result;
 	return ;
+}
+
+char const *				Date::printInfos(void) const {
+
+	std::string  str;
+
+	str = "Time: \n";
+	str += this->_time;
+
+	return (str.c_str());
 }
 
 void				Date::renderNcurses(void) const {

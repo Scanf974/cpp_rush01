@@ -65,6 +65,18 @@ void                Osinfo::getInfos(void) {
 	return ;
 }
 
+char const * 				Osinfo::printInfos(void) const{
+
+	std::string 	str;
+
+	str = "Release: \n";
+	str += this->_release;
+	str += "\nModel: \n";
+	str += this->_model;
+
+	return (str.c_str());
+}
+
 void				Osinfo::renderNcurses(void) const {
 	printw("Release : %s", this->_release.c_str());
 	printw("Model: %s", this->_model.c_str());

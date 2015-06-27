@@ -65,6 +65,18 @@ void				Hostname::getInfos(void) {
 	this->_userName = userNameString;
 }
 
+char const *				Hostname::printInfos(void) const {
+
+	std::string 	str;
+
+	str = "Hostname: \n";
+	str += this->_hostName;
+	str += "\nUsername: \n";
+	str += this->_userName;
+
+	return( str.c_str());
+}
+
 void				Hostname::renderNcurses(void) const {
 	printw("Host Name: %s\n", this->_hostName.c_str());
 	printw("User Name: %s\n", this->_userName.c_str());
