@@ -60,9 +60,7 @@ void			GKrellM::init_curses(void) {
 
 void			GKrellM::addModule(AModule *module) {
 
-	QVBoxLayout *vBox = new QVBoxLayout;
-	QGroupBox *groupBox = new QGroupBox( QString::fromStdString(module->getName()) );
-	this->_grid->addWidget(groupBox, 0, 0);
+
 
 	this->_module.push_back(module);
 }
@@ -85,6 +83,15 @@ void			GKrellM::render(int lib) {
 			}
 			refresh();
 			for(int i = 0; i < 90000000; i++);
+		}
+	}
+	else
+	{
+		for (; beg != end; beg++)
+		{
+			//QVBoxLayout *vBox = new QVBoxLayout;
+			QGroupBox *groupBox = new QGroupBox( QString::fromStdString((*beg)->getName()) );
+			this->_grid->addWidget(groupBox, (*beg)->getX(), (*beg)->getY());
 		}
 	}
 }

@@ -33,6 +33,12 @@ AModule::~AModule(void) {
 std::string			AModule::getName(void) const {
 	return this->_name;
 }
+int					AModule::getX(void) const {
+	return (this->_X);
+}
+int					AModule::getY(void) const {
+	return (this->_Y);
+}
 
 
 
