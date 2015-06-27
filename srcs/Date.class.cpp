@@ -6,12 +6,13 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 16:36:26 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/27 18:03:19 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/27 23:35:09 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Date.class.hpp"
 #include "AModule.class.hpp"
+#include <ncurses.h>
 
 /*--------------- Constructors --------------*/
 Date::Date(void) : AModule("Date") {
@@ -58,7 +59,7 @@ void                Date::getInfos(void) {
 }
 
 void				Date::renderNcurses(void) const {
-	std::cout << "Time: " << this->_time << std::endl;
+	printw("Time: %s\n", this->_time.c_str());
 }
 
 void				Date::renderQt(void) const {

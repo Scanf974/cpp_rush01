@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 12:23:14 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/27 17:48:14 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/27 23:02:22 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <pwd.h>
+#include <ncurses.h>
 
 /*-------------- Constructors -------------*/
 Hostname::Hostname(void) : AModule("Hostname/Username") {
@@ -65,8 +66,8 @@ void				Hostname::getInfos(void) {
 }
 
 void				Hostname::renderNcurses(void) const {
-	std::cout << "Host Name: " << this->_hostName << std::endl;
-	std::cout << "User Name: " << this->_userName << std::endl;
+	printw("Host Name: %s\n", this->_hostName.c_str());
+	printw("User Name: %s\n", this->_userName.c_str());
 }
 
 void				Hostname::renderQt(void) const {

@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 14:36:28 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/27 17:36:53 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/27 23:37:52 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ class	GKrellM
 		GKrellM(void);
 		~GKrellM(void);
 
+		int			getHeight(void) const;
+		int			getWidth(void) const;
+
 		void		addModule(AModule* module);
-		//void		init_curses(void);
+		void		init_curses(void);
 		//void		init_Qt(void);
 		void		render(int lib);
 
@@ -34,6 +37,8 @@ class	GKrellM
 
 		std::list<AModule *>		_module;
 		int							_lib;
+		int							_height;
+		int							_width;
 };
 
 #endif
