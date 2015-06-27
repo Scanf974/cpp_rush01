@@ -31,6 +31,7 @@ class	GKrellM
 		//void		init_Qt(void);
 		void		render(int lib);
 
+
 	private:
 		GKrellM(GKrellM const & src);
 		GKrellM		& operator=(GKrellM const & right);
