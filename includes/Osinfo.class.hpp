@@ -22,6 +22,9 @@ public:
 	Osinfo & operator=( Osinfo const & rhs );
 private:
 	Osinfo( Osinfo const & src );
+
+	std::string		_release;
+	std::string		_model;
 };
 
 #endif
