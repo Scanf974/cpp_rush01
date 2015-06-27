@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Amodule.class.cpp                                  :+:      :+:    :+:   */
+/*   AModule.class.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/27 17:20:55 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/27 17:20:56 by etermeau         ###   ########.fr       */
+/*   Created: 2015/06/27 17:38:15 by bsautron          #+#    #+#             */
+/*   Updated: 2015/06/27 17:41:39 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Date.class.hpp"
+#include "AModule.class.hpp"
 
-/*--------------- Constructors --------------*/
-Date::Date(void) {
-    //std::cout << "Date: Default constructor" << std::endl;
-    return ;
+/*-------------- Constructors -------------*/
+AModule::AModule(void) {
+	//std::cout << "AModule: Default constructor" << std::endl;
+	return ;
 }
 
 
 /*--------------- Destructors --------------*/
-Date::~Date(void) {
-    //std::cout << "Date: Destructor" << std::endl;
-    return ;
+AModule::~AModule(void) {
+	//std::cout << "AModule: Destructor" << std::endl;
+	return ;
 }
 
 
@@ -32,7 +32,11 @@ Date::~Date(void) {
 /*------------------ Geter -----------------*/
 
 
+
+
 /*------------------ Seter -----------------*/
+
+
 
 
 /*------------------ Other -----------------*/

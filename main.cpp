@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 10:46:39 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/27 17:05:56 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/27 17:37:23 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 #include "Hostname.class.hpp"
 #include "IMonitorModule.class.hpp"
 #include "GKrellM.class.hpp"
+#include "AModule.class.hpp"
 
 int		main(void)
 {
 	GKrellM				g;
-	IMonitorModule *host = new Hostname();
+	AModule *host = new Hostname();
 
 	g.addModule(host);
 	g.render(0);

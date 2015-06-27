@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 14:36:28 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/27 17:07:59 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/27 17:36:53 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include <list>
-# include "IMonitorModule.class.hpp"
+# include "AModule.class.hpp"
 
 class	GKrellM
 {
@@ -23,7 +23,7 @@ class	GKrellM
 		GKrellM(void);
 		~GKrellM(void);
 
-		void		addModule(IMonitorModule  * module);
+		void		addModule(AModule* module);
 		//void		init_curses(void);
 		//void		init_Qt(void);
 		void		render(int lib);
@@ -32,8 +32,8 @@ class	GKrellM
 		GKrellM(GKrellM const & src);
 		GKrellM		& operator=(GKrellM const & right);
 
-		std::list<IMonitorModule *>		_module;
-		int										_lib;
+		std::list<AModule *>		_module;
+		int							_lib;
 };
 
 #endif
