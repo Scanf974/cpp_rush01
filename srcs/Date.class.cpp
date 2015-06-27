@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 16:36:26 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/28 00:46:24 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 01:00:45 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <ncurses.h>
 
 /*--------------- Constructors --------------*/
-Date::Date(int x, int y) : AModule("Date", x, y) {
+Date::Date(int x, int y) : AModule("Date/Time", x, y) {
     //std::cout << "Date: Default constructor" << std::endl;
     return ;
 }
@@ -62,6 +62,17 @@ void				Date::renderNcurses(int h, int w) const {
 	move((h / 2) * this->_Y + 1, (w / 2) * this->_X);
 	printw("Time: %s", this->_time.c_str());
 }
+
+char const *				Date::printInfos(void) const {
+
+	std::string  str;
+
+	str = "Time: \n";
+	str += this->_time;
+
+	return (str.c_str());
+}
+
 
 void				Date::renderQt(void) const {
 

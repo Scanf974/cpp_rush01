@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 15:33:07 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/28 00:45:04 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 00:58:41 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,18 @@ void				Osinfo::renderNcurses(int h, int w) const {
 	printw("Release : %s", this->_release.c_str());
 	move((h / 2) * this->_Y + 2, (w / 2) * this->_X);
 	printw("Model: %s", this->_model.c_str());
+}
+
+char const * 				Osinfo::printInfos(void) const{
+
+	std::string 	str;
+
+	str = "Release: \n";
+	str += this->_release;
+	str += "\nModel: \n";
+	str += this->_model;
+
+	return (str.c_str());
 }
 
 void				Osinfo::renderQt(void) const {

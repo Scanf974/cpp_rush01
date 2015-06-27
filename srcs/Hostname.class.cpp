@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 12:23:14 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 00:43:58 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 00:59:17 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,18 @@ void				Hostname::renderNcurses(int h, int w) const {
 	printw("Host Name: %s", this->_hostName.c_str());
 	move((h / 2) * this->_Y + 2, (w / 2) * this->_X);
 	printw("User Name: %s", this->_userName.c_str());
+}
+
+char const *				Hostname::printInfos(void) const {
+
+	std::string 	str;
+
+	str = "Hostname: \n";
+	str += this->_hostName;
+	str += "\nUsername: \n";
+	str += this->_userName;
+
+	return( str.c_str());
 }
 
 void				Hostname::renderQt(void) const {
