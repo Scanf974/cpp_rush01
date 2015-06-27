@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMonitorModule.class.hpp                           :+:      :+:    :+:   */
+/*   IMonitorDisplay.class.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/27 11:54:23 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/27 15:39:54 by bsautron         ###   ########.fr       */
+/*   Created: 2015/06/27 16:04:46 by bsautron          #+#    #+#             */
+/*   Updated: 2015/06/27 16:06:49 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMONITORMODULE_HPP
-# define IMONITORMODULE_HPP 
+#ifndef IMONITORDISPLAY_CLASS_HPP 
+# define IMONITORDISPLAY_CLASS_HPP
 
-class IMonitorModule
+class	IMonitorDisplay
 {
-public:
-	virtual void		getInfos(void) = 0;
+	public:
+		virtual void	renderNcurses(void) const = 0;
+		virtual void	renderQt(void) const = 0;
 };
 
 #endif
+
