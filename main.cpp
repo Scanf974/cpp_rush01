@@ -53,9 +53,9 @@ int		main(int ac, char **av)
 	g.addModule(host);
 	g.addModule(date);
 	g.addModule(os);
-	g.init_curses();
-	g.render(0);
+	//g.init_curses();
+	g.render(1);
 	g.show();
-	
+
  	return (0);
 }

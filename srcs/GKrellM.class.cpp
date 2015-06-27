@@ -60,30 +60,32 @@ void			GKrellM::init_curses(void) {
 
 void			GKrellM::addModule(AModule *module) {
 
-	QVBoxLayout *vBox = new QVBoxLayout;
-	QGroupBox *groupBox = new QGroupBox( QString::fromStdString(module.getName()) );
-	this->_grid->addWidget(groupBox, 1, 1);
+	// QVBoxLayout *vBox = new QVBoxLayout;
+	// QGroupBox *groupBox = new QGroupBox( QString::fromStdString(module->getName()) );
+	// this->_grid->addWidget(groupBox, 1, 1);
 
 	this->_module.push_back(module);
 }
 
 void			GKrellM::render(int lib) {
-	(void)lib;
 	std::list<AModule *>		tmp = this->_module;
 
 	std::list<AModule *>::iterator		beg = tmp.begin();
 	std::list<AModule *>::iterator		end = tmp.end();
 
-	while (1)
+	if (lib == 0)
 	{
-	for (; beg != end; beg++)
-	{
-		(*beg)->getInfos();
-		printw("--- Module: %s ---\n", (*beg)->getName().c_str());
-		(*beg)->renderNcurses();
-	}
-	refresh();
-	for(int i = 0; i < 90000000; i++);
+		while (1)
+		{
+			for (; beg != end; beg++)
+			{
+				(*beg)->getInfos();
+				printw("--- Module: %s ---\n", (*beg)->getName().c_str());
+				(*beg)->renderNcurses();
+			}
+			refresh();
+			for(int i = 0; i < 90000000; i++);
+		}
 	}
 }
 
