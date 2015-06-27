@@ -16,7 +16,7 @@
 class Cpu
 {
 public:
-	Cpu( void );
+	Cpu( int x, int y );
 	virtual ~Cpu( void );
 
 	Cpu & operator=( Cpu const & rhs );

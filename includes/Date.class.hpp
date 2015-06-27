@@ -20,7 +20,7 @@
 class Date : public AModule
 {
 	public:
-		Date( void );
+		Date(int x, int y);
 		virtual ~Date( void );
 
 		std::string		getTime(void) const;

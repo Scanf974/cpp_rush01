@@ -61,9 +61,9 @@ void			GKrellM::init_curses(void) {
 
 void			GKrellM::addModule(AModule *module) {
 
-	// QVBoxLayout *vBox = new QVBoxLayout;
-	// QGroupBox *groupBox = new QGroupBox( QString::fromStdString(module->getName()) );
-	// this->_grid->addWidget(groupBox, 1, 1);
+	QVBoxLayout *vBox = new QVBoxLayout;
+	QGroupBox *groupBox = new QGroupBox( QString::fromStdString(module->getName()) );
+	this->_grid->addWidget(groupBox, 0, 0);
 
 	this->_module.push_back(module);
 }
@@ -92,9 +92,11 @@ void			GKrellM::render(int lib) {
 
 void			GKrellM::init_Qt(int ac, char **av) {
 
+	this->_height = 500;
+	this->_width = 700;
 	this->_app = new QApplication(ac, av);
 	this->_win = new QWidget();
-	this->_win->setFixedSize(700, 500);
+	this->_win->setFixedSize(this->_width, this->_height);
 	this->_grid = new QGridLayout();
 	this->_win->setLayout(this->_grid);
 }

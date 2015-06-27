@@ -15,7 +15,7 @@
 #include <ncurses.h>
 
 /*--------------- Constructors --------------*/
-Date::Date(void) : AModule("Date") {
+Date::Date(int x, int y) : AModule("Date", x, y) {
     //std::cout << "Date: Default constructor" << std::endl;
     return ;
 }

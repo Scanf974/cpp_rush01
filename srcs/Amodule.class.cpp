@@ -13,7 +13,7 @@
 #include "AModule.class.hpp"
 
 /*-------------- Constructors -------------*/
-AModule::AModule(std::string name) : _name(name) {
+AModule::AModule(std::string name, int x, int y) : _name(name), _X(x), _Y(y) {
 	//std::cout << "AModule: Default constructor" << std::endl;
 	return ;
 }

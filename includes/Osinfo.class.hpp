@@ -18,7 +18,7 @@
 class Osinfo: public AModule
 {
 public:
-	Osinfo( void );
+	Osinfo( int x, int y );
 	virtual ~Osinfo( void );
 
 	std::string         getModel(void) const;
