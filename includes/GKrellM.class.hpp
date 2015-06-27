@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 14:36:28 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/27 17:36:53 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/27 21:45:22 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,28 @@
 
 # include <iostream>
 # include <list>
+# include <QApplication>
+# include <QPushButton>
+# include <QGroupBox>
+# include <QHBoxLayout>
+# include <QVBoxLayout>
+# include <QWidget>
+# include <QLabel>
+# include <QLineEdit>
+# include <QProgressBar>
+# include <QSlider>
 # include "AModule.class.hpp"
 
 class	GKrellM
 {
 	public:
-		GKrellM(void);
+		GKrellM(int ac, char **av);
 		~GKrellM(void);
 
 		void		addModule(AModule* module);
 		//void		init_curses(void);
-		//void		init_Qt(void);
+		void		init_Qt(int ac, char **av);
+		void		show( void );
 		void		render(int lib);
 
 	private:
@@ -33,6 +44,9 @@ class	GKrellM
 		GKrellM		& operator=(GKrellM const & right);
 
 		std::list<AModule *>		_module;
+		QApplication            	*_app;
+		QWidget             		*_win;
+		QGridLayout					*_grid;
 		int							_lib;
 };
 

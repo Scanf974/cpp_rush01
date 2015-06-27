@@ -22,9 +22,9 @@
 #include "Date.class.hpp"
 #include "Osinfo.class.hpp"
 
-int		main(void)
+int		main(int ac, char **av)
 {
-	GKrellM				g;
+	GKrellM				g(ac, av);
 	AModule *host = new Hostname();
 	AModule *date = new Date();
 	AModule *os = new Osinfo();
@@ -34,5 +34,6 @@ int		main(void)
 	g.addModule(os);
 	g.render(0);
 
+	g.show();
  	return (0);
 }
