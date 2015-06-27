@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 17:38:15 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/27 17:47:27 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/27 18:05:29 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ AModule::~AModule(void) {
 
 
 /*------------------ Geter -----------------*/
-
+std::string			AModule::getName(void) const {
+	return this->_name;
+}
 
 
 

@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 16:36:26 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/27 17:55:10 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/27 18:03:19 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void                Date::getInfos(void) {
 
 	time(&rawtime);
 	timeinfo = localtime(&rawtime);
-	strftime(buffer, 80, "Time: %e/%m/%Y %I:%M:%S%p", timeinfo);
+	strftime(buffer, 80, "%e/%m/%Y %I:%M:%S%p", timeinfo);
 
 	result = std::string(buffer);
 	this->_time = result;

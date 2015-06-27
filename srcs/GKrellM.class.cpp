@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 14:44:31 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/27 17:39:46 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/27 18:06:45 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void			GKrellM::render(int lib) {
 	for (; beg != end; beg++)
 	{
 		(*beg)->getInfos();
+		std::cout << "-- Module: " << (*beg)->getName() << " --" << std::endl;
 		(*beg)->renderNcurses();
+		std::cout  << std::endl;
 	}
 }
