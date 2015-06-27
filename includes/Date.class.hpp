@@ -19,10 +19,9 @@ public:
 	Date( void );
 	virtual ~Date( void );
 
-	virtual void	getInfos(void) = 0;
-	virtual void	renderNcurses( void ) const = 0;
-	virtual void	renderQt( void ) const = 0;
-
+	virtual void	getInfos(void) ;
+	virtual void	renderNcurses( void ) const;
+	virtual void	renderQt( void ) const 
 private:
 	Date( Date const & src );
 	Date & operator=( Date const & rhs );
