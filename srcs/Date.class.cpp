@@ -50,7 +50,7 @@ void                Date::getInfos(void) {
 
 	time(&rawtime);
 	timeinfo = localtime(&rawtime);
-	strftime(buffer, 80, "Time: %e/%m/%Y %I:%M:%S%p", timeinfo);
+	strftime(buffer, 80, "%e/%m/%Y %I:%M:%S%p", timeinfo);
 
 	result = std::string(buffer);
 	this->_time = result;
