@@ -570,25 +570,6 @@ main.o: main.cpp includes/Hostname.class.hpp \
 		includes/IMonitorDisplay.class.hpp \
 		includes/IMonitorModule.class.hpp \
 		includes/GKrellM.class.hpp \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QApplication \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qapplication.h \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QPushButton \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qpushbutton.h \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGroupBox \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qgroupbox.h \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QHBoxLayout \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qboxlayout.h \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QVBoxLayout \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QWidget \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qwidget.h \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QLabel \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qlabel.h \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QLineEdit \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qlineedit.h \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QProgressBar \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qprogressbar.h \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QSlider \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qslider.h \
 		includes/Date.class.hpp \
 		includes/Osinfo.class.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
@@ -605,25 +586,6 @@ Date.class.o: srcs/Date.class.cpp includes/Date.class.hpp \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Date.class.o srcs/Date.class.cpp
 
 GKrellM.class.o: srcs/GKrellM.class.cpp includes/GKrellM.class.hpp \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QApplication \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qapplication.h \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QPushButton \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qpushbutton.h \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QGroupBox \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qgroupbox.h \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QHBoxLayout \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qboxlayout.h \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QVBoxLayout \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QWidget \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qwidget.h \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QLabel \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qlabel.h \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QLineEdit \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qlineedit.h \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QProgressBar \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qprogressbar.h \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QSlider \
-		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qslider.h \
 		includes/AModule.class.hpp \
 		includes/IMonitorDisplay.class.hpp \
 		includes/IMonitorModule.class.hpp

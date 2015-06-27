@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 10:46:39 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 00:03:35 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 00:05:57 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		main(int ac, char **av)
 	g.addModule(date);
 	g.addModule(os);
 	g.init_curses();
-	//g.render(1);
+	g.render(0);
 //	g.show();
 
  	return (0);
