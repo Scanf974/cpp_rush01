@@ -46,13 +46,13 @@ void	sysinfint(char const *str)
 int		main(int ac, char **av)
 {
 	GKrellM				g(ac, av);
-	AModule *host = new Hostname();
-	AModule *date = new Date();
-	AModule *os = new Osinfo();
+	AModule *host = new Hostname(0, 0);
+	AModule *date = new Date(1, 0);
+	AModule *os = new Osinfo(0, 1);
 
-	g.addModule(host, 0, 0);
-	g.addModule(date, 1, 0);
-	g.addModule(os, 0, 1);
+	g.addModule(host);
+	g.addModule(date);
+	g.addModule(os);
 	//g.init_curses();
 	g.render(1);
 	g.show();
