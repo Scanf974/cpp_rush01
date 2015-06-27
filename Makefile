@@ -6,7 +6,7 @@
 #    By: bsautron <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/16 11:13:38 by bsautron          #+#    #+#              #
-#    Updated: 2015/06/27 17:50:17 by bsautron         ###   ########.fr        #
+#    Updated: 2015/06/27 18:02:37 by bsautron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,14 +18,25 @@ SRC_MAIN = main.cpp
 
 SRC_CLASS = GKrellM.class.cpp \
 			Hostname.class.cpp \
-		   	AModule.class.cpp \
+			AModule.class.cpp \
 			Date.class.cpp \
 			Osinfo.class.cpp
 
 SRC = $(SRC_MAIN)
 SRC += $(addprefix srcs/, $(SRC_CLASS))
 
-# HEADER = 
+HEADER_SRC = AModule.class.hpp \
+			 Cpu.class.hpp \
+			 Date.class.hpp \
+			 GKrellM.class.hpp \
+			 Hostname.class.hpp \
+			 IMonitorDisplay.class.hpp \
+			 IMonitorModule.class.hpp \
+			 NetworkThroughput.class.hpp \
+			 Osinfo.class.hpp \
+			 RAM.class.hpp
+
+HEADER = $(addprefix includes/, $(HEADER_SRC))
 
 DIR_HEADERS = -I includes/
 
