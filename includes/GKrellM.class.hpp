@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 14:36:28 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/27 23:37:52 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 00:25:10 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,34 +27,33 @@
 # include <QSlider>
 # include "AModule.class.hpp"
 
-class	GKrellM
+class    GKrellM
 {
 	public:
 		GKrellM(int ac, char **av);
 		~GKrellM(void);
 
-		int			getHeight(void) const;
-		int			getWidth(void) const;
+		int            getHeight(void) const;
+		int            getWidth(void) const;
 
-		void		addModule(AModule* module);
+		void        addModule(AModule* module);
 
-		void		init_curses(void);
-		void		init_Qt(int ac, char **av);
-		void		show( void );
-		void		render(int lib);
+		void        init_curses(void);
+		void        init_Qt(int ac, char **av);
+		void        show( void );
+		void        render(int lib);
 
 	private:
 		GKrellM(GKrellM const & src);
-		GKrellM		& operator=(GKrellM const & right);
+		GKrellM        & operator=(GKrellM const & right);
 
-		std::list<AModule *>		_module;
-		QApplication            	*_app;
-		QWidget             		*_win;
-		QGridLayout					*_grid;
-		int							_lib;
-		int							_height;
-		int							_width;
+		std::list<AModule *>        _module;
+		QApplication                *_app;
+		QWidget                     *_win;
+		QGridLayout                    *_grid;
+		int                            _lib;
+		int                            _height;
+		int                            _width;
 };
 
 #endif
-
