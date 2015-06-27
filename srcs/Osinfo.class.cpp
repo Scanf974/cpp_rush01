@@ -60,3 +60,13 @@ void                Osinfo::getInfos(void) {
 
 	return ;
 }
+
+
+void				Osinfo::renderNcurses(void) const {
+	std::cout << "Release : " << this->_release << std::endl;
+	std::cout << "Model: " << this->_model << std::endl;
+}
+
+void				Osinfo::renderQt(void) const {
+
+}

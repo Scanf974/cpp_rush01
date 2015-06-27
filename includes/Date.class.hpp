@@ -19,10 +19,13 @@ public:
 	Date( void );
 	virtual ~Date( void );
 
-	Date & operator=( Date const & rhs );
+	virtual void	getInfos(void) = 0;
+	virtual void	renderNcurses( void ) const = 0;
+	virtual void	renderQt( void ) const = 0;
 
 private:
 	Date( Date const & src );
+	Date & operator=( Date const & rhs );
 
 	std::string		_time;
 };

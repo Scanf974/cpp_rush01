@@ -55,3 +55,11 @@ void                Date::getInfos(void) {
 	this->_time = result;
 	return ;
 }
+
+void				Osinfo::renderNcurses(void) const {
+	std::cout << "Time: " << this->_time << std::endl;
+}
+
+void				Osinfo::renderQt(void) const {
+
+}

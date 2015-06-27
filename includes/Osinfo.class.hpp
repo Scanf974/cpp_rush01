@@ -13,14 +13,20 @@
 #ifndef OSINFO_HPP
 # define OSINFO_HPP 
 
-class Osinfo
+#include "Amodule.class.hpp"
+
+class Osinfo: public AModule
 {
 public:
 	Osinfo( void );
 	virtual ~Osinfo( void );
 
-	Osinfo & operator=( Osinfo const & rhs );
+	virtual void		getInfos(void);
+	virtual void		renderNcurses(void) const;
+	virtual void		renderQt(void) const;
+
 private:
+	Osinfo & operator=( Osinfo const & rhs );
 	Osinfo( Osinfo const & src );
 
 	std::string		_release;

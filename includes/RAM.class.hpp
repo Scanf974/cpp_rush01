@@ -17,7 +17,6 @@ class Ram
 {
 public:
 	Ram( void );
-
 	virtual ~Ram( void );
 
 	Ram & operator=( Ram const & rhs );
