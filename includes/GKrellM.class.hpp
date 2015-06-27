@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 14:36:28 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/27 21:45:22 by etermeau         ###   ########.fr       */
+/*   Updated: 2015/06/27 23:37:52 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,12 @@ class	GKrellM
 		GKrellM(int ac, char **av);
 		~GKrellM(void);
 
+		int			getHeight(void) const;
+		int			getWidth(void) const;
+
 		void		addModule(AModule* module);
-		//void		init_curses(void);
+
+		void		init_curses(void);
 		void		init_Qt(int ac, char **av);
 		void		show( void );
 		void		render(int lib);
@@ -48,6 +52,8 @@ class	GKrellM
 		QWidget             		*_win;
 		QGridLayout					*_grid;
 		int							_lib;
+		int							_height;
+		int							_width;
 };
 
 #endif
