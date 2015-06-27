@@ -11,6 +11,10 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <sys/sysctl.h>
+#include <sys/param.h>
+#include <sys/utsname.h>
+#include <unistd.h>
 #include "Hostname.class.hpp"
 #include "IMonitorModule.class.hpp"
 #include "GKrellM.class.hpp"
@@ -23,5 +27,5 @@ int		main(void)
 	g.addModule(host);
 	g.render(0);
 
-	return (0);
+ 	return (0);
 }

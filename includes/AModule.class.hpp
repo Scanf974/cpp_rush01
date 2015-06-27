@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Date.class.hpp                                     :+:      :+:    :+:   */
+/*   AModule.class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/27 11:23:59 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/27 11:24:01 by etermeau         ###   ########.fr       */
+/*   Created: 2015/06/27 17:13:10 by etermeau          #+#    #+#             */
+/*   Updated: 2015/06/27 17:13:11 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATE_HPP
-# define DATE_HPP 
+#ifndef AMOUDULE_HPP
+# define AMOUDULE_HPP 
 
-class Date
+class AModule
 {
 public:
-	Date( void );
-	virtual ~Date( void );
-
-	Date & operator=( Date const & rhs );
+	AModule();
+	virtual ~AModule();
+	
+	virtual void	renderNcurses( void ) const = 0;
+	virtual void	renderQt( void ) const = 0;
 
 private:
-	Date( Date const & src );
+	AModule & operator=( AModule const & rhs );
+	AModule( AModule const & src );
 
-	std::string		_time;
 };
 
 #endif
