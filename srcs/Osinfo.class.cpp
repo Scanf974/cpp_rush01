@@ -6,14 +6,15 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 15:33:07 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/27 15:33:08 by etermeau         ###   ########.fr       */
+/*   Updated: 2015/06/27 17:49:14 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Osinfo.hpp"
+#include "AModule.class.hpp"
 
 /*--------------- Constructors --------------*/
-Osinfo::Osinfo(void) {
+Osinfo::Osinfo(void) : AModule("OS Infos") {
     //std::cout << "Osinfo: Default constructor" << std::endl;
     return ;
 }
