@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 11:54:23 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/27 11:54:26 by etermeau         ###   ########.fr       */
+/*   Updated: 2015/06/27 15:39:54 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ class IMonitorModule
 {
 public:
 	virtual void		getInfos(void) = 0;
-
 };
 
 #endif

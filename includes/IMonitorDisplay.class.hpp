@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   IMonitorDisplay.class.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/27 10:46:39 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/27 15:49:28 by bsautron         ###   ########.fr       */
+/*   Created: 2015/06/27 16:04:46 by bsautron          #+#    #+#             */
+/*   Updated: 2015/06/27 16:06:49 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Hostname.class.hpp"
-#include "IMonitorModule.class.hpp"
-#include "GKrellM.class.hpp"
+#ifndef IMONITORDISPLAY_CLASS_HPP 
+# define IMONITORDISPLAY_CLASS_HPP
 
-int		main(void)
+class	IMonitorDisplay
 {
-	GKrellM				g;
-	IMonitorModule *host = new Hostname();
+	public:
+		virtual void	renderNcurses(void) const = 0;
+		virtual void	renderQt(void) const = 0;
+};
 
-	g.addModule(host);
+#endif
 
-	return (0);
-}
