@@ -29,6 +29,7 @@
 
 class	GKrellM
 {
+	
 	public:
 		GKrellM(int ac, char **av);
 		~GKrellM(void);
