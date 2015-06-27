@@ -6,14 +6,15 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 16:36:26 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/27 16:36:28 by etermeau         ###   ########.fr       */
+/*   Updated: 2015/06/27 17:55:10 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Date.class.hpp"
+#include "AModule.class.hpp"
 
 /*--------------- Constructors --------------*/
-Date::Date(void) {
+Date::Date(void) : AModule("Date") {
     //std::cout << "Date: Default constructor" << std::endl;
     return ;
 }
@@ -56,10 +57,10 @@ void                Date::getInfos(void) {
 	return ;
 }
 
-void				Osinfo::renderNcurses(void) const {
+void				Date::renderNcurses(void) const {
 	std::cout << "Time: " << this->_time << std::endl;
 }
 
-void				Osinfo::renderQt(void) const {
+void				Date::renderQt(void) const {
 
 }

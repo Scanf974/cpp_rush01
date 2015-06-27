@@ -6,18 +6,19 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 12:23:14 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/27 17:01:15 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/27 17:48:14 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sstream>
 #include "Hostname.class.hpp"
+#include "AModule.class.hpp"
 #include <unistd.h>
 #include <sys/types.h>
 #include <pwd.h>
 
 /*-------------- Constructors -------------*/
-Hostname::Hostname(void) {
+Hostname::Hostname(void) : AModule("Hostname/Username") {
 	//std::cout << "Hostname: Default constructor" << std::endl;
 	return ;
 }

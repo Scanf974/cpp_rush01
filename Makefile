@@ -6,7 +6,7 @@
 #    By: bsautron <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/16 11:13:38 by bsautron          #+#    #+#              #
-#    Updated: 2015/06/27 17:39:21 by bsautron         ###   ########.fr        #
+#    Updated: 2015/06/27 17:50:17 by bsautron         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,11 @@ CFLAGS = -Wextra -Wall -Werror
 
 SRC_MAIN = main.cpp
 
-SRC_CLASS = Hostname.class.cpp \
-			GKrellM.class.cpp \
-			AModule.class.cpp
+SRC_CLASS = GKrellM.class.cpp \
+			Hostname.class.cpp \
+		   	AModule.class.cpp \
+			Date.class.cpp \
+			Osinfo.class.cpp
 
 SRC = $(SRC_MAIN)
 SRC += $(addprefix srcs/, $(SRC_CLASS))
