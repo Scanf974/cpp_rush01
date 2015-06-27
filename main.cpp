@@ -48,7 +48,7 @@ int		main(int ac, char **av)
 	GKrellM				g(ac, av);
 	AModule *host = new Hostname(0, 0);
 	AModule *date = new Date(1, 0);
-	AModule *os = new Osinfo(0, 1);
+	AModule *os = new Osinfo(2, 0);
 
 	g.addModule(host);
 	g.addModule(date);

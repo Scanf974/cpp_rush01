@@ -94,12 +94,10 @@ void			GKrellM::render(int lib) {
 			QGroupBox *groupBox = new QGroupBox( QString::fromStdString((*beg)->getName()) );
 			this->_grid->addWidget(groupBox, (*beg)->getX(), (*beg)->getY());
 
-			// QLabel *Label = new QLabel("Test :");
-			// vBox->addWidget(Label);
 			QLabel *name = new QLabel( QString::fromStdString((*beg)->printInfos()));
 			vBox->addWidget(name);
 
-			vBox->addStretch(3);
+			vBox->addStretch(2);
 			groupBox->setLayout(vBox);
 		}
 	}
@@ -108,7 +106,7 @@ void			GKrellM::render(int lib) {
 void			GKrellM::init_Qt(int ac, char **av) {
 
 	this->_height = 500;
-	this->_width = 700;
+	this->_width = 550;
 	this->_app = new QApplication(ac, av);
 	this->_win = new QWidget();
 	this->_win->setFixedSize(this->_width, this->_height);
