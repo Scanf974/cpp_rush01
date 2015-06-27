@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 10:46:39 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/27 15:49:28 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/27 17:05:56 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		main(void)
 	IMonitorModule *host = new Hostname();
 
 	g.addModule(host);
+	g.render(0);
 
 	return (0);
 }

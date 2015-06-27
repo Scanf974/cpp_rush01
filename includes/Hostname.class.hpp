@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 11:19:49 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/27 15:39:50 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/27 16:58:26 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 # include <iostream>
 # include "IMonitorModule.class.hpp"
+# include "IMonitorDisplay.class.hpp"
 
-class Hostname : public IMonitorModule
+class Hostname : public IMonitorModule, public IMonitorDisplay
 {
 public:
 	Hostname( void );
@@ -24,7 +25,11 @@ public:
 
 	std::string			getHostName(void) const;
 	std::string			getUserName(void) const;
+
 	virtual void		getInfos(void);
+	virtual void		renderNcurses(void) const;
+	virtual void		renderQt(void) const;
+
 
 
 private:

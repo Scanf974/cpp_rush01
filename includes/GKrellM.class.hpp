@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 14:36:28 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/27 16:45:12 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/27 17:07:59 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ class	GKrellM
 		void		addModule(IMonitorModule  * module);
 		//void		init_curses(void);
 		//void		init_Qt(void);
-		//void		render(int lib) const;
+		void		render(int lib);
 
 	private:
 		GKrellM(GKrellM const & src);
 		GKrellM		& operator=(GKrellM const & right);
 
-		std::list<IMonitorModule const *>		_module;
+		std::list<IMonitorModule *>		_module;
 		int										_lib;
 };
 

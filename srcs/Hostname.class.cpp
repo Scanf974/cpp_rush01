@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 12:23:14 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/27 14:33:55 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/27 17:01:15 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,13 @@ void				Hostname::getInfos(void) {
 	ss >> userNameString;
 
 	this->_userName = userNameString;
+}
+
+void				Hostname::renderNcurses(void) const {
+	std::cout << "Host Name: " << this->_hostName << std::endl;
+	std::cout << "User Name: " << this->_userName << std::endl;
+}
+
+void				Hostname::renderQt(void) const {
+
 }
