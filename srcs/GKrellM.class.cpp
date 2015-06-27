@@ -90,7 +90,7 @@ void			GKrellM::render(int lib) {
 	{
 		for (; beg != end; beg++)
 		{
-			//QVBoxLayout *vBox = new QVBoxLayout;
+			QVBoxLayout *vBox = new QVBoxLayout;
 			QGroupBox *groupBox = new QGroupBox( QString::fromStdString((*beg)->getName()) );
 			this->_grid->addWidget(groupBox, (*beg)->getX(), (*beg)->getY());
 		}

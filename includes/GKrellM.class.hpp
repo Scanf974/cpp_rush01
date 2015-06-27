@@ -19,6 +19,7 @@
 
 class	GKrellM
 {
+	
 	public:
 		GKrellM(void);
 		~GKrellM(void);
