@@ -11,9 +11,13 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <sys/sysctl.h>
+#include <sys/param.h>
+#include <sys/utsname.h>
+#include <unistd.h>
 
 int		main(void)
 {
 
-	return (0);
+ 	return (0);
 }
