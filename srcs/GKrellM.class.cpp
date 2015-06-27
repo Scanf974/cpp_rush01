@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 14:44:31 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/27 23:39:12 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 00:02:36 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void			GKrellM::init_curses(void) {
 	noecho();
 	curs_set(0);
 	keypad(stdscr, TRUE);
+	getmaxyx(stdscr, this->_height, this->_width);
 }
 
 void			GKrellM::addModule(AModule *module) {
