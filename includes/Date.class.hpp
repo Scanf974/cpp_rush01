@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 11:23:59 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/27 17:59:17 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 00:45:24 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Date : public AModule
 		std::string		getTime(void) const;
 
 		virtual void	getInfos(void);
-		virtual void	renderNcurses( void ) const;
+		virtual void	renderNcurses( int h, int w ) const;
 		virtual void	renderQt( void ) const;
 
 	private:

@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 14:44:31 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 00:02:36 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 00:48:16 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /*-------------- Constructors -------------*/
 GKrellM::GKrellM(int ac, char **av) {
 
-	init_Qt(ac ,av);
+	//init_Qt(ac ,av);
 	//std::cout << "GKrellM: Default constructor" << std::endl;
 	return ;
 }
@@ -79,8 +79,9 @@ void			GKrellM::render(int lib) {
 			for (; beg != end; beg++)
 			{
 				(*beg)->getInfos();
-				printw("--- Module: %s ---\n", (*beg)->getName().c_str());
-				(*beg)->renderNcurses();
+				move((this->_height / 2) * (*beg)->getY(), (this->_width / 2) * (*beg)->getX());
+				printw("--- Module: %s ---", (*beg)->getName().c_str());
+				(*beg)->renderNcurses(this->_height, this->_width);
 			}
 			refresh();
 			for(int i = 0; i < 90000000; i++);
@@ -90,7 +91,7 @@ void			GKrellM::render(int lib) {
 	{
 		for (; beg != end; beg++)
 		{
-			QVBoxLayout *vBox = new QVBoxLayout;
+		//	QVBoxLayout *vBox = new QVBoxLayout;
 			QGroupBox *groupBox = new QGroupBox( QString::fromStdString((*beg)->getName()) );
 			this->_grid->addWidget(groupBox, (*beg)->getX(), (*beg)->getY());
 		}

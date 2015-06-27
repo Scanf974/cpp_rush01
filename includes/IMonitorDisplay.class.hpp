@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 16:04:46 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/27 17:36:05 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 00:47:06 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 class	IMonitorDisplay
 {
 	public:
-		virtual void	renderNcurses(void) const = 0;
+		virtual void	renderNcurses(int h, int w) const = 0;
 		virtual void	renderQt(void) const = 0;
 };
 

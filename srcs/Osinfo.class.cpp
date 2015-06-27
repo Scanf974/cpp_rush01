@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 15:33:07 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/27 23:03:47 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 00:45:04 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,10 @@ void                Osinfo::getInfos(void) {
 	return ;
 }
 
-void				Osinfo::renderNcurses(void) const {
+void				Osinfo::renderNcurses(int h, int w) const {
+	move((h / 2) * this->_Y + 1, (w / 2) * this->_X);
 	printw("Release : %s", this->_release.c_str());
+	move((h / 2) * this->_Y + 2, (w / 2) * this->_X);
 	printw("Model: %s", this->_model.c_str());
 }
 
