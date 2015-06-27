@@ -50,9 +50,9 @@ int		main(int ac, char **av)
 	AModule *date = new Date();
 	AModule *os = new Osinfo();
 
-	g.addModule(host);
-	g.addModule(date);
-	g.addModule(os);
+	g.addModule(host, 0, 0);
+	g.addModule(date, 1, 0);
+	g.addModule(os, 0, 1);
 	//g.init_curses();
 	g.render(1);
 	g.show();
