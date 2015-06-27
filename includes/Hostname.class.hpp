@@ -19,7 +19,7 @@
 class Hostname : public AModule
 {
 public:
-	Hostname( void );
+	Hostname( int x, int y );
 	virtual ~Hostname( void );
 
 	std::string			getHostName(void) const;

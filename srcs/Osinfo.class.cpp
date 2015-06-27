@@ -17,7 +17,7 @@
 #include <ncurses.h>
 
 /*--------------- Constructors --------------*/
-Osinfo::Osinfo(void) : AModule("OS Infos") {
+Osinfo::Osinfo(int x, int y) : AModule("OS Infos", x, y) {
     //std::cout << "Osinfo: Default constructor" << std::endl;
     return ;
 }

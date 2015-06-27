@@ -19,7 +19,7 @@
 #include <ncurses.h>
 
 /*-------------- Constructors -------------*/
-Hostname::Hostname(void) : AModule("Hostname/Username") {
+Hostname::Hostname(int x, int y) : AModule("Hostname/Username", x, y) {
 	//std::cout << "Hostname: Default constructor" << std::endl;
 	return ;
 }

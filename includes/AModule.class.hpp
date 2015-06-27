@@ -20,7 +20,7 @@
 class AModule : public IMonitorModule, public IMonitorDisplay
 {
 	public:
-		AModule(std::string name);
+		AModule(std::string name, int x, int y);
 		virtual ~AModule(void);
 
 		std::string		getName(void) const;
@@ -33,7 +33,10 @@ class AModule : public IMonitorModule, public IMonitorDisplay
 		AModule & operator=( AModule const & rhs );
 		AModule( AModule const & src );
 
+	protected:
 		std::string			_name;
+		int					_X;
+		int					_Y;
 
 };
 
