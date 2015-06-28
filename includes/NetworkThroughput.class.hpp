@@ -13,17 +13,30 @@
 #ifndef NETWORK_HPP
 # define NETWORK_HPP 
 
-class NetworkThrough
+#include <iostream>
+
+#include "AModule.class.hpp"
+
+class NetworkThroughput: public AModule
 {
 public:
-	NetworkThrough( int x, int y );
-	virtual ~NetworkThrough( void );
+	NetworkThroughput( int x, int y );
+	virtual ~NetworkThroughput( void );
 
-	
+	virtual void		getInfos(void);
+	virtual void		renderNcurses( int h, int w ) const;
+	virtual void		renderQt( QGridLayout **grid ) const;
+	virtual char const 	*printInfos(void) const;
 
 private:
-	NetworkThrough( NetworkThrough const & src );
-	NetworkThrough & operator=( NetworkThrough const & rhs );
+	NetworkThroughput( NetworkThroughput const & src );
+	NetworkThroughput & operator=( NetworkThroughput const & rhs );
+
+	int			_in1;
+	int			_in2;
+	int			_out1;
+	int			_out2;
+
 };
 
 #endif

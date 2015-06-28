@@ -13,11 +13,14 @@
 #ifndef IMONITORDISPLAY_CLASS_HPP 
 # define IMONITORDISPLAY_CLASS_HPP
 
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+
 class	IMonitorDisplay
 {
 	public:
 		virtual void	renderNcurses(int h, int w) const = 0;
-		virtual void	renderQt(void) const = 0;
+		virtual void	renderQt(QGridLayout **grid) const = 0;
 };
 
 #endif

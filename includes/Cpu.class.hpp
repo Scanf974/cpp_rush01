@@ -23,12 +23,10 @@ public:
 	Cpu( int x, int y );
 	virtual ~Cpu( void );
 
-
-
 	virtual void		getInfos(void);
 	virtual void		renderNcurses( int h, int w ) const;
+	virtual void		renderQt( QGridLayout **grid ) const;
 	virtual char const 	*printInfos(void) const;
-	virtual void		renderQt( void ) const;
 
 private:
 	Cpu( Cpu const & src );
@@ -38,6 +36,9 @@ private:
 	int		_physicalCpu;
 	int		_logicalCpu;
 	int		_frequencyCpu;
+	float	_user;
+	float	_sys;
+	float	_idle;
 };
 
 #endif

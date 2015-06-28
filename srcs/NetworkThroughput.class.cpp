@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cpu.class.cpp                                      :+:      :+:    :+:   */
+/*   NetworkThroughput.class.cpp                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/28 11:29:30 by etermeau          #+#    #+#             */
-/*   UpCpud: 2015/06/28 11:29:35 by etermeau         ###   ########.fr       */
+/*   Created: 2015/06/28 15:24:15 by etermeau          #+#    #+#             */
+/*   Updated: 2015/06/28 15:24:17 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cpu.class.hpp"
+#include "NetworkThroughput.class.hpp"
 #include "AModule.class.hpp"
 #include <sys/types.h>
 #include <sys/sysctl.h>
@@ -20,15 +20,15 @@
 
 
 /*--------------- Constructors --------------*/
-Cpu::Cpu(int x, int y) : AModule("Cpu", x, y) {
-    //std::cout << "Cpu: Default constructor" << std::endl;
+NetworkThroughput::NetworkThroughput(int x, int y) : AModule("NetworkThroughput", x, y) {
+    //std::cout << "NetworkThroughput: Default constructor" << std::endl;
     return ;
 }
 
 
 /*--------------- Destructors --------------*/
-Cpu::~Cpu(void) {
-    //std::cout << "Cpu: Destructor" << std::endl;
+NetworkThroughput::~NetworkThroughput(void) {
+    //std::cout << "NetworkThroughput: Destructor" << std::endl;
     return ;
 }
 
@@ -45,24 +45,9 @@ Cpu::~Cpu(void) {
 
 
 /*------------------ Other -----------------*/
-void                Cpu::getInfos(void) {
+void                NetworkThroughput::getInfos(void) {
 
-	int					i;
-	size_t				size_int = sizeof(i);
-
-	sysctlbyname("hw.ncpu", &i, &size_int, NULL, 0);
-	this->_nbCpu = i;
-
-	sysctlbyname("hw.physicalcpu", &i, &size_int, NULL, 0);
-	this->_physicalCpu = i;
-
-	sysctlbyname("hw.logicalcpu", &i, &size_int, NULL, 0);
-	this->_logicalCpu = i;
-
-	sysctlbyname("hw.cpufrequency", &i, &size_int, NULL, 0);
-	this->_frequencyCpu = i;
 	
-
 	int			len;
 	FILE* 		pipe = popen("top -l 1 -n 0 ", "r");
 	char 		buffer[128];
@@ -76,8 +61,8 @@ void                Cpu::getInfos(void) {
 	}
 	pclose(pipe);
 
-	len =  result.find("SharedLibs") - result.find("CPU");
-	char const * tmp = result.substr(result.find("CPU"), len).c_str();
+	len =  result.find("out") - result.find("Network");
+	char const * tmp = result.substr(result.find("Network"), len).c_str();
 	int			nb = 0;
 
 	for (int i = 0; tmp[i]; i++)
@@ -85,11 +70,13 @@ void                Cpu::getInfos(void) {
 		if (isdigit(tmp[i]))
 		{
 			if (nb == 0)
-				this->_user = std::atof(&tmp[i]);
+				this->_in1 = std::atoi(&tmp[i]);
 			else if (nb == 1)
-				this->_sys = std::atof(&tmp[i]);
+				this->_in2 = std::atoi(&tmp[i]);
 			else if (nb == 2)
-				this->_idle = std::atof(&tmp[i]);
+				this->_out1 = std::atoi(&tmp[i]);
+			else if (nb == 3)
+				this->_out2 = std::atoi(&tmp[i]);
 			else
 				return ;
 			while (isdigit(tmp[i]) || tmp[i] == '.') i++;
@@ -100,44 +87,35 @@ void                Cpu::getInfos(void) {
 	return ;
 }
 
-void				Cpu::renderNcurses(int h, int w) const {
+void				NetworkThroughput::renderNcurses(int h, int w) const {
 	move((h / 2) * this->_Y + 1, (w / 2) * this->_X);
-	printw("Number CPU: %d", this->_nbCpu);
+	printw("Network packets: %d/%dG in", this->_in1, this->_in2);
 	move((h / 2) * this->_Y + 2, (w / 2) * this->_X);
-	printw("Physical CPU: %d", this->_physicalCpu);
-	move((h / 2) * this->_Y + 3, (w / 2) * this->_X);
-	printw("Logical CPU: %d", this->_logicalCpu);
-	move((h / 2) * this->_Y + 4, (w / 2) * this->_X);
-	printw("Frequency CPU: %d", this->_nbCpu);
-	move((h / 2) * this->_Y + 5, (w / 2) * this->_X);
-	printw("Usage user: %f%%", this->_user);
-	move((h / 2) * this->_Y + 6, (w / 2) * this->_X);
-	printw("Usage system: %f%%", this->_sys);
-	move((h / 2) * this->_Y + 7, (w / 2) * this->_X);
-	printw("Usage idle: %f%%", this->_idle);
+	printw("Network packets: %d/%dM out", this->_out1, this->_out2);
 }
 
-char const *				Cpu::printInfos(void) const {
+char const *				NetworkThroughput::printInfos(void) const {
 
 
 	std::ostringstream 	ss;
 	std::string 		str;
 
-	ss << "CPU Number:\n";
-	ss << this->_nbCpu;
-	ss << "\n\nPhysical CPU:\n";
-	ss << this->_physicalCpu;
-	ss << "\n\nLogical CPU:\n";
-	ss << this->_logicalCpu;
-	ss << "\n\nFrequncy CPU:\n";
-	ss << this->_frequencyCpu;
+	ss << "Network packets:\n";
+	ss << this->_in1;
+	ss << "/";
+	ss << this->_in2;
+	ss << "G in\n\nNetwork packets:\n";
+	ss << this->_out1;
+	ss << "/";
+	ss << this->_out2;
+	ss << "M out";
 	str = ss.str();
 
 	return (str.c_str());
 }
 
 
-void				Cpu::renderQt(QGridLayout **grid) const {
+void				NetworkThroughput::renderQt(QGridLayout **grid) const {
 
 	QVBoxLayout *vBox = new QVBoxLayout;
 	QGroupBox *groupBox = new QGroupBox( QString::fromStdString(this->getName()) );
@@ -150,4 +128,5 @@ void				Cpu::renderQt(QGridLayout **grid) const {
 	groupBox->setLayout(vBox);
 
 }
+
 
