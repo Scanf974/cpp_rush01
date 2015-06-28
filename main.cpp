@@ -6,12 +6,13 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 10:46:39 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 01:10:07 by etermeau         ###   ########.fr       */
+/*   Updated: 2015/06/28 13:17:26 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <sys/sysctl.h>
+#include <sys/types.h>
 #include <sys/param.h>
 #include <sys/utsname.h>
 #include <unistd.h>
@@ -21,6 +22,7 @@
 #include "AModule.class.hpp"
 #include "Date.class.hpp"
 #include "Osinfo.class.hpp"
+#include "Ram.class.hpp"
 #include "Cpu.class.hpp"
 #include <string.h>
 
@@ -46,11 +48,24 @@ void	sysinfint(char const *str)
 
 int		main(int ac, char **av)
 {
+	(void)av;
+	(void)ac;
+/*
+	int mib[2], i;
+	size_t len;
+
+	mib[0] = CTL_HW;
+	mib[1] = HW_MEMSIZE;
+	len = sizeof(i);
+	sysctl(mib, 2, &i, &len, NULL, 0);
+	printf("%d\n" ,i);
+*/
+
 	int		ll;
-	GKrellM				g(ac, av);
-	AModule *host = new Hostname(0, 0);
-	AModule *date = new Date(1, 0);
-	AModule *os = new Osinfo(0, 1);
+	GKrellM				g;
+	AModule *ram = new Ram(0, 0);
+	AModule *date = new Date(0, 1);
+	AModule *os = new Osinfo(1, 0);
 	AModule *cpu = new Cpu(1, 1);
 	AModule *net = new NetworkThrough(1, 2); 
 
@@ -58,7 +73,7 @@ int		main(int ac, char **av)
 	std::cout << "1: Graphic" << std::endl;
 	std::cin >> ll;
 
-	g.addModule(host);
+	g.addModule(ram);
 	g.addModule(date);
 	g.addModule(os);
 	g.addModule(cpu);
@@ -67,6 +82,5 @@ int		main(int ac, char **av)
 	else
 		g.init_Qt(ac, av);
 	g.render(ll);
-
- 	return (0);
+	return (0);
 }

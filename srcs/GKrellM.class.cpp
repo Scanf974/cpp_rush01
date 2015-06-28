@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 14:44:31 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 01:05:44 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 13:17:51 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 #include <ncurses.h>
 
 /*-------------- Constructors -------------*/
-GKrellM::GKrellM(int ac, char **av) {
+GKrellM::GKrellM(void) {
 
 
-	(void)ac;
-	(void)av;
 	//std::cout << "GKrellM: Default constructor" << std::endl;
 	return ;
 }
@@ -27,7 +25,7 @@ GKrellM::GKrellM(int ac, char **av) {
 GKrellM::~GKrellM(void) {
 	delete this->_grid;
 	delete this->_win;
-    delete this->_app;
+	delete this->_app;
 	//std::cout << "GKrellM: Destructor" << std::endl;
 	return ;
 }
@@ -78,6 +76,11 @@ void			GKrellM::render(int lib) {
 	{
 		while (1)
 		{
+			std::list<AModule *>		tmp = this->_module;
+			std::list<AModule *>::iterator		beg = tmp.begin();
+			std::list<AModule *>::iterator		end = tmp.end();
+
+			clear();
 			for (; beg != end; beg++)
 			{
 				(*beg)->getInfos();
@@ -86,7 +89,6 @@ void			GKrellM::render(int lib) {
 				(*beg)->renderNcurses(this->_height, this->_width);
 			}
 			refresh();
-			for(int i = 0; i < 90000000; i++);
 		}
 	}
 	else
