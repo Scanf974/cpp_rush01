@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 14:44:31 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 15:53:34 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 16:35:05 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,27 @@ void			GKrellM::addModule(AModule *module) {
 	this->_module.push_back(module);
 }
 
+std::string 	GKrellM::getTop(void) const {
+
+	FILE*       pipe = popen("top -l 1 -n 0 ", "r");
+	char        buffer[128];
+	std::string result;
+
+	while (!feof(pipe)) {
+		if (fgets(buffer, 128, pipe) != NULL)
+			result += buffer;
+	}
+	pclose(pipe);
+	return (result);
+}
+
 void			GKrellM::render(int lib) {
 	std::list<AModule *>		tmp = this->_module;
 
 	std::list<AModule *>::iterator		beg = tmp.begin();
 	std::list<AModule *>::iterator		end = tmp.end();
+
+	std::string		result;
 
 	int		ch;
 
@@ -85,6 +101,7 @@ void			GKrellM::render(int lib) {
 	{
 		while (1)
 		{
+			result = this->getTop();
 			while ((ch = getch()) != ERR)
 				this->handleEvent(ch);
 			std::list<AModule *>		tmp = this->_module;
@@ -94,7 +111,7 @@ void			GKrellM::render(int lib) {
 			clear();
 			for (; beg != end; beg++)
 			{
-				(*beg)->getInfos();
+				(*beg)->getInfos(result);
 				move((this->_height / AModule::_maxY) * (*beg)->getY(), (this->_width / AModule::_maxX) * (*beg)->getX());
 				printw("--- Module: %s ---", (*beg)->getName().c_str());
 				(*beg)->renderNcurses(this->_height, this->_width);
@@ -106,7 +123,7 @@ void			GKrellM::render(int lib) {
 	{
 		for (; beg != end; beg++)
 		{
-			(*beg)->getInfos();
+			(*beg)->getInfos(result);
 			(*beg)->renderQt(&this->_grid);
 		}
 		this->show();

@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 11:24:25 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/28 14:17:47 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 16:27:20 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Ram : public AModule
 		Ram( int x, int y );
 		virtual ~Ram( void );
 
-		virtual void		getInfos(void);
+		virtual void		getInfos(std::string result);
 		virtual void		renderNcurses(int h, int w) const;
 		virtual void		renderQt(QGridLayout **grid) const;
 		virtual char const	*printInfos(void) const;

@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 11:23:59 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/28 01:01:46 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 16:26:34 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Date : public AModule
 
 		std::string		getTime(void) const;
 
-		virtual void	getInfos(void);
+		virtual void	getInfos(std::string result);
 		virtual void	renderNcurses( int h, int w ) const;
 		virtual char const 	*printInfos(void) const;
 		virtual void	renderQt( QGridLayout **grid ) const;

@@ -45,7 +45,7 @@ Cpu::~Cpu(void) {
 
 
 /*------------------ Other -----------------*/
-void                Cpu::getInfos(void) {
+void                Cpu::getInfos(std::string result) {
 
 	int					i;
 	size_t				size_int = sizeof(i);
@@ -64,21 +64,10 @@ void                Cpu::getInfos(void) {
 	
 
 	int			len;
-	FILE* 		pipe = popen("top -l 1 -n 0 ", "r");
-	char 		buffer[128];
-	std::string	result;
-
-	if (!pipe)
-		return ;
-	while(!feof(pipe)) {
-		if (fgets(buffer, 128, pipe) != NULL)
-			result += buffer;
-	}
-	pclose(pipe);
-
-	len =  result.find("SharedLibs") - result.find("CPU");
-	char const * tmp = result.substr(result.find("CPU"), len).c_str();
 	int			nb = 0;
+
+	len = result.find("idle") - result.find("CPU");
+	char const	*tmp = result.substr(result.find("CPU")).c_str();
 
 	for (int i = 0; tmp[i]; i++)
 	{

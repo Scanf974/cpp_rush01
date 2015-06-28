@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 11:24:59 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/27 11:25:01 by etermeau         ###   ########.fr       */
+/*   Updated: 2015/06/28 16:27:00 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	NetworkThroughput( int x, int y );
 	virtual ~NetworkThroughput( void );
 
-	virtual void		getInfos(void);
+	virtual void		getInfos(std::string result);
 	virtual void		renderNcurses( int h, int w ) const;
 	virtual void		renderQt( QGridLayout **grid ) const;
 	virtual char const 	*printInfos(void) const;

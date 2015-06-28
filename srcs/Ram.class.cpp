@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/28 12:06:13 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 14:34:35 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 16:31:42 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,13 @@ Ram::~Ram(void) {
 
 
 /*------------------ Other -----------------*/
-void				Ram::getInfos(void) {
+void				Ram::getInfos(std::string result) {
 
 	int			len;
-	FILE* 		pipe = popen("top -l 1 -n 0 ", "r");
-	char 		buffer[128];
-	std::string	result;
-
-	if (!pipe)
-		return ;
-	while(!feof(pipe)) {
-		if (fgets(buffer, 128, pipe) != NULL)
-			result += buffer;
-	}
-	pclose(pipe);
-
-	len =  result.find("VM") - result.find("PhysMem");
-	char const * tmp = result.substr(result.find("PhysMem"), len).c_str();
 	int			nb = 0;
+
+	len = result.find("VM") - result.find("PhysMem");
+	char const  *tmp = result.substr(result.find("PhysMem"), len).c_str();
 
 	for (int i = 0; tmp[i]; i++)
 	{

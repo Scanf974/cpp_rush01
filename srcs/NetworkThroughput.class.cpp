@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/28 15:24:15 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/28 15:24:17 by etermeau         ###   ########.fr       */
+/*   Updated: 2015/06/28 16:30:29 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,25 +45,12 @@ NetworkThroughput::~NetworkThroughput(void) {
 
 
 /*------------------ Other -----------------*/
-void                NetworkThroughput::getInfos(void) {
+void                NetworkThroughput::getInfos(std::string result) {
 
-	
-	int			len;
-	FILE* 		pipe = popen("top -l 1 -n 0 ", "r");
-	char 		buffer[128];
-	std::string	result;
-
-	if (!pipe)
-		return ;
-	while(!feof(pipe)) {
-		if (fgets(buffer, 128, pipe) != NULL)
-			result += buffer;
-	}
-	pclose(pipe);
-
-	len =  result.find("out") - result.find("Network");
-	char const * tmp = result.substr(result.find("Network"), len).c_str();
+	int			len;	
 	int			nb = 0;
+    len = result.find("out") - result.find("Network");
+	    char const  *tmp = result.substr(result.find("Network"), len).c_str();
 
 	for (int i = 0; tmp[i]; i++)
 	{

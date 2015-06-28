@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 17:13:10 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/28 15:55:06 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 16:32:40 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class AModule : public IMonitorModule, public IMonitorDisplay
 		int				getY(void) const;
 		std::string		getName(void) const;
 
-		virtual void	getInfos(void) = 0;
+		virtual void	getInfos(std::string result) = 0;
 		virtual void	renderNcurses( int h, int w ) const = 0;
 		virtual char const	*printInfos( void ) const = 0;	
 		virtual void	renderQt( QGridLayout **grid ) const = 0;

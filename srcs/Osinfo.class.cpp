@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 15:33:07 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/28 14:44:55 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 16:30:51 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,9 @@ std::string         Osinfo::getModel(void) const {
 
 
 /*------------------ Other -----------------*/
-void                Osinfo::getInfos(void) {
+void                Osinfo::getInfos(std::string result) {
 	char str[256];
+	(void)result;
 
 	size_t size = sizeof(str);
 	sysctlbyname("kern.osrelease", str, &size, NULL, 0);

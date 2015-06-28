@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 16:36:26 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/28 14:32:00 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 16:28:17 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,24 @@ std::string         Date::getTime(void) const {
 
 
 /*------------------ Other -----------------*/
-void                Date::getInfos(void) {
+void                Date::getInfos(std::string result) {
 	
-	std::string			result;
+	std::string			res;
     time_t				rawtime;
     struct tm			*timeinfo;
     char				buffer[80];
 
+	(void)result;
 	time(&rawtime);
 	timeinfo = localtime(&rawtime);
 	strftime(buffer, 80, "%I:%M:%S %p", timeinfo);
 
-	result = std::string(buffer);
-	this->_time = result;
+	res = std::string(buffer);
+	this->_time = res;
 	
 	strftime(buffer, 80, "%e/%m/%Y", timeinfo);
-	result = std::string(buffer);
-	this->_date = result;
+	res = std::string(buffer);
+	this->_date = res;
 
 	return ;
 }

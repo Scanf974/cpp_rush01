@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 12:23:14 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 14:33:35 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 16:28:34 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,10 @@ std::string			Hostname::getUserName(void) const {
 
 
 /*------------------ Other -----------------*/
-void				Hostname::getInfos(void) {
+void				Hostname::getInfos(std::string result) {
 	char	buf[256];
 
+	(void)result;
 	gethostname(buf, sizeof(buf));
 	this->_hostName = buf;
 
