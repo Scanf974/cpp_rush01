@@ -112,14 +112,20 @@ char const *				Cpu::printInfos(void) const {
 	std::ostringstream 	ss;
 	std::string 		str;
 
-	ss << "CPU Number:\n";
+	ss << "CPU Number: ";
 	ss << this->_nbCpu;
-	ss << "\n\nPhysical CPU:\n";
+	ss << "\n\nPhysical CPU: ";
 	ss << this->_physicalCpu;
-	ss << "\n\nLogical CPU:\n";
+	ss << "\n\nLogical CPU: ";
 	ss << this->_logicalCpu;
-	ss << "\n\nFrequncy CPU:\n";
+	ss << "\n\nFrequncy CPU: ";
 	ss << this->_frequencyCpu;
+	ss << "\n\nUsage user: ";
+	ss << this->_user;
+	ss << "\n\nUsage system: ";
+	ss << this->_sys;
+	ss << "\n\nUsage idle: ";
+	ss << this->_idle;
 	str = ss.str();
 
 	return (str.c_str());
