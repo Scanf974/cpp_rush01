@@ -13,15 +13,31 @@
 #ifndef CPU_HPP
 # define CPU_HPP 
 
-class Cpu
+#include <iostream>
+
+#include "AModule.class.hpp"
+
+class Cpu : public AModule
 {
 public:
 	Cpu( int x, int y );
 	virtual ~Cpu( void );
 
-	Cpu & operator=( Cpu const & rhs );
+
+
+	virtual void		getInfos(void);
+	virtual void		renderNcurses( int h, int w ) const;
+	virtual char const 	*printInfos(void) const;
+	virtual void		renderQt( void ) const;
+
 private:
 	Cpu( Cpu const & src );
+	Cpu & operator=( Cpu const & rhs );
+
+	int		_nbCpu;
+	int		_physicalCpu;
+	int		_logicalCpu;
+	int		_frequencyCpu;
 };
 
 #endif

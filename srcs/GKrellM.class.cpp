@@ -16,7 +16,9 @@
 /*-------------- Constructors -------------*/
 GKrellM::GKrellM(int ac, char **av) {
 
-	//init_Qt(ac ,av);
+
+	(void)ac;
+	(void)av;
 	//std::cout << "GKrellM: Default constructor" << std::endl;
 	return ;
 }
@@ -112,6 +114,7 @@ void			GKrellM::init_Qt(int ac, char **av) {
 	this->_width = 550;
 	this->_app = new QApplication(ac, av);
 	this->_win = new QWidget();
+	this->_win->setWindowTitle("ZAZ loves cats !");
 	this->_win->setFixedSize(this->_width, this->_height);
 	this->_grid = new QGridLayout();
 	this->_win->setLayout(this->_grid);

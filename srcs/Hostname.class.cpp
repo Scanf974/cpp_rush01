@@ -78,7 +78,7 @@ char const *				Hostname::printInfos(void) const {
 
 	str = "Hostname: \n";
 	str += this->_hostName;
-	str += "\nUsername: \n";
+	str += "\n\nUsername: \n";
 	str += this->_userName;
 
 	return( str.c_str());

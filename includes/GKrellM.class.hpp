@@ -47,9 +47,9 @@ class    GKrellM
 		GKrellM(GKrellM const & src);
 		GKrellM        & operator=(GKrellM const & right);
 
-		std::list<AModule *>        _module;
-		QApplication                *_app;
-		QWidget                     *_win;
+		std::list<AModule *>      	  _module;
+		QApplication              	  *_app;
+		QWidget                   	  *_win;
 		QGridLayout                    *_grid;
 		int                            _lib;
 		int                            _height;
