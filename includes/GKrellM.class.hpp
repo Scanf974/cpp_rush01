@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 14:36:28 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 00:25:10 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 12:59:10 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 class    GKrellM
 {
 	public:
-		GKrellM(int ac, char **av);
+		GKrellM(void);
 		~GKrellM(void);
 
 		int            getHeight(void) const;

@@ -49,17 +49,19 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = main.cpp \
-		srcs/AModule.class.cpp \
+		srcs/Amodule.class.cpp \
 		srcs/Date.class.cpp \
 		srcs/GKrellM.class.cpp \
 		srcs/Hostname.class.cpp \
-		srcs/Osinfo.class.cpp 
+		srcs/Osinfo.class.cpp \
+		srcs/Ram.class.cpp 
 OBJECTS       = main.o \
-		AModule.class.o \
+		Amodule.class.o \
 		Date.class.o \
 		GKrellM.class.o \
 		Hostname.class.o \
-		Osinfo.class.o
+		Osinfo.class.o \
+		Ram.class.o
 DIST          = ../Qt/5.4/clang_64/mkspecs/features/spec_pre.prf \
 		../Qt/5.4/clang_64/mkspecs/qdevice.pri \
 		../Qt/5.4/clang_64/mkspecs/features/device_config.prf \
@@ -191,12 +193,13 @@ DIST          = ../Qt/5.4/clang_64/mkspecs/features/spec_pre.prf \
 		includes/IMonitorModule.class.hpp \
 		includes/NetworkThroughput.class.hpp \
 		includes/Osinfo.class.hpp \
-		includes/RAM.class.hpp main.cpp \
-		srcs/AModule.class.cpp \
+		includes/Ram.class.hpp main.cpp \
+		srcs/Amodule.class.cpp \
 		srcs/Date.class.cpp \
 		srcs/GKrellM.class.cpp \
 		srcs/Hostname.class.cpp \
-		srcs/Osinfo.class.cpp
+		srcs/Osinfo.class.cpp \
+		srcs/Ram.class.cpp
 QMAKE_TARGET  = cpp_rush01
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = cpp_rush01.app/Contents/MacOS/cpp_rush01
@@ -520,8 +523,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents includes/AModule.class.hpp includes/Cpu.class.hpp includes/Date.class.hpp includes/GKrellM.class.hpp includes/Hostname.class.hpp includes/IMonitorDisplay.class.hpp includes/IMonitorModule.class.hpp includes/NetworkThroughput.class.hpp includes/Osinfo.class.hpp includes/RAM.class.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp srcs/AModule.class.cpp srcs/Date.class.cpp srcs/GKrellM.class.cpp srcs/Hostname.class.cpp srcs/Osinfo.class.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents includes/AModule.class.hpp includes/Cpu.class.hpp includes/Date.class.hpp includes/GKrellM.class.hpp includes/Hostname.class.hpp includes/IMonitorDisplay.class.hpp includes/IMonitorModule.class.hpp includes/NetworkThroughput.class.hpp includes/Osinfo.class.hpp includes/Ram.class.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp srcs/Amodule.class.cpp srcs/Date.class.cpp srcs/GKrellM.class.cpp srcs/Hostname.class.cpp srcs/Osinfo.class.cpp srcs/Ram.class.cpp $(DISTDIR)/
 
 
 clean:compiler_clean 
@@ -590,13 +593,14 @@ main.o: main.cpp includes/Hostname.class.hpp \
 		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/QSlider \
 		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qslider.h \
 		includes/Date.class.hpp \
-		includes/Osinfo.class.hpp
+		includes/Osinfo.class.hpp \
+		includes/Ram.class.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
-AModule.class.o: srcs/AModule.class.cpp includes/AModule.class.hpp \
+Amodule.class.o: srcs/Amodule.class.cpp includes/AModule.class.hpp \
 		includes/IMonitorDisplay.class.hpp \
 		includes/IMonitorModule.class.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AModule.class.o srcs/AModule.class.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Amodule.class.o srcs/Amodule.class.cpp
 
 Date.class.o: srcs/Date.class.cpp includes/Date.class.hpp \
 		includes/AModule.class.hpp \
@@ -640,6 +644,13 @@ Osinfo.class.o: srcs/Osinfo.class.cpp includes/Osinfo.class.hpp \
 		includes/IMonitorDisplay.class.hpp \
 		includes/IMonitorModule.class.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Osinfo.class.o srcs/Osinfo.class.cpp
+
+Ram.class.o: srcs/Ram.class.cpp includes/Ram.class.hpp \
+		includes/AModule.class.hpp \
+		includes/IMonitorDisplay.class.hpp \
+		includes/IMonitorModule.class.hpp \
+		includes/Amodule.class.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Ram.class.o srcs/Ram.class.cpp
 
 ####### Install
 
