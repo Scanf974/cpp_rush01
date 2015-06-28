@@ -50,6 +50,7 @@ OBJECTS_DIR   = ./
 
 SOURCES       = main.cpp \
 		srcs/Amodule.class.cpp \
+		srcs/Cpu.class.cpp \
 		srcs/Date.class.cpp \
 		srcs/GKrellM.class.cpp \
 		srcs/Hostname.class.cpp \
@@ -57,6 +58,7 @@ SOURCES       = main.cpp \
 		srcs/Ram.class.cpp 
 OBJECTS       = main.o \
 		Amodule.class.o \
+		Cpu.class.o \
 		Date.class.o \
 		GKrellM.class.o \
 		Hostname.class.o \
@@ -195,6 +197,7 @@ DIST          = ../Qt/5.4/clang_64/mkspecs/features/spec_pre.prf \
 		includes/Osinfo.class.hpp \
 		includes/Ram.class.hpp main.cpp \
 		srcs/Amodule.class.cpp \
+		srcs/Cpu.class.cpp \
 		srcs/Date.class.cpp \
 		srcs/GKrellM.class.cpp \
 		srcs/Hostname.class.cpp \
@@ -524,7 +527,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents includes/AModule.class.hpp includes/Cpu.class.hpp includes/Date.class.hpp includes/GKrellM.class.hpp includes/Hostname.class.hpp includes/IMonitorDisplay.class.hpp includes/IMonitorModule.class.hpp includes/NetworkThroughput.class.hpp includes/Osinfo.class.hpp includes/Ram.class.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp srcs/Amodule.class.cpp srcs/Date.class.cpp srcs/GKrellM.class.cpp srcs/Hostname.class.cpp srcs/Osinfo.class.cpp srcs/Ram.class.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp srcs/Amodule.class.cpp srcs/Cpu.class.cpp srcs/Date.class.cpp srcs/GKrellM.class.cpp srcs/Hostname.class.cpp srcs/Osinfo.class.cpp srcs/Ram.class.cpp $(DISTDIR)/
 
 
 clean:compiler_clean 
@@ -602,6 +605,12 @@ Amodule.class.o: srcs/Amodule.class.cpp includes/AModule.class.hpp \
 		includes/IMonitorDisplay.class.hpp \
 		includes/IMonitorModule.class.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Amodule.class.o srcs/Amodule.class.cpp
+
+Cpu.class.o: srcs/Cpu.class.cpp includes/Cpu.class.hpp \
+		includes/AModule.class.hpp \
+		includes/IMonitorDisplay.class.hpp \
+		includes/IMonitorModule.class.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Cpu.class.o srcs/Cpu.class.cpp
 
 Date.class.o: srcs/Date.class.cpp includes/Date.class.hpp \
 		includes/AModule.class.hpp \
