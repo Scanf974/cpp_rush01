@@ -51,12 +51,12 @@ void                Date::getInfos(void) {
 
 	time(&rawtime);
 	timeinfo = localtime(&rawtime);
-	strftime(buffer, 80, "%I:%M:%S%p", timeinfo);
+	strftime(buffer, 80, "%I:%M:%S %p", timeinfo);
 
 	result = std::string(buffer);
 	this->_time = result;
 	
-	strftime(buffer, 80, "%e/%m/%Y %p", timeinfo);
+	strftime(buffer, 80, "%e/%m/%Y", timeinfo);
 	result = std::string(buffer);
 	this->_date = result;
 
@@ -65,6 +65,8 @@ void                Date::getInfos(void) {
 
 void				Date::renderNcurses(int h, int w) const {
 	move((h / 2) * this->_Y + 1, (w / 2) * this->_X);
+	printw("Date: %s", this->_date.c_str());
+	move((h / 2) * this->_Y + 2, (w / 2) * this->_X);
 	printw("Time: %s", this->_time.c_str());
 }
 
