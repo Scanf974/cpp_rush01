@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 17:13:10 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/28 16:32:40 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 18:58:10 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@
 #include <QProgressBar>
 #include <QSlider>
 #include <iostream>
+
+#define COLOR_ORANGE		30
+#define COLOR_GREEN			31
+#define COLOR_RED			32
+#define COLOR_TITLE			33
 
 class AModule : public IMonitorModule, public IMonitorDisplay
 {

@@ -18,18 +18,17 @@
 #include <cstdlib>
 #include <sstream>
 
-
 /*--------------- Constructors --------------*/
 Cpu::Cpu(int x, int y) : AModule("Cpu", x, y) {
-    //std::cout << "Cpu: Default constructor" << std::endl;
-    return ;
+	//std::cout << "Cpu: Default constructor" << std::endl;
+	return ;
 }
 
 
 /*--------------- Destructors --------------*/
 Cpu::~Cpu(void) {
-    //std::cout << "Cpu: Destructor" << std::endl;
-    return ;
+	//std::cout << "Cpu: Destructor" << std::endl;
+	return ;
 }
 
 
@@ -61,7 +60,7 @@ void                Cpu::getInfos(std::string result) {
 
 	sysctlbyname("hw.cpufrequency", &i, &size_int, NULL, 0);
 	this->_frequencyCpu = i;
-	
+
 
 	int			len;
 	int			nb = 0;
@@ -89,21 +88,47 @@ void                Cpu::getInfos(std::string result) {
 	return ;
 }
 
+void				Cpu::ft_putInfo(char const  *label, float data, int line, int h, int w) const {
+	if (data >= 75)
+	{
+		move((h / AModule::_maxY) * this->_Y + line, (w / AModule::_maxX) * this->_X);
+		printw("%s:\t%4.1f%% ", label, data);
+		attron(COLOR_PAIR(COLOR_RED));
+		hline(' ', data + 1);
+		attroff(COLOR_PAIR(COLOR_RED));
+	}
+	else if (data <= 71)
+	{
+		move((h / AModule::_maxY) * this->_Y + line, (w / AModule::_maxX) * this->_X);
+		printw("%s:\t%4.1f%% ", label, data);
+		attron(COLOR_PAIR(COLOR_GREEN));
+		hline(' ', data + 1);
+		attroff(COLOR_PAIR(COLOR_GREEN));
+	}
+	else
+	{
+		move((h / AModule::_maxY) * this->_Y + line, (w / AModule::_maxX) * this->_X);
+		printw("%s:\t%4.1f%% ", label, data);
+		attron(COLOR_PAIR(COLOR_ORANGE));
+		hline(' ', data + 1);
+		attroff(COLOR_PAIR(COLOR_ORANGE));
+	}
+
+}
+
 void				Cpu::renderNcurses(int h, int w) const {
 	move((h / AModule::_maxY) * this->_Y + 1, (w / AModule::_maxX) * this->_X);
-	printw("Number CPU: %d", this->_nbCpu);
+	printw("Number CPU:\t%d", this->_nbCpu);
 	move((h / AModule::_maxY) * this->_Y + 2, (w / AModule::_maxX) * this->_X);
-	printw("Physical CPU: %d", this->_physicalCpu);
+	printw("Physical CPU:\t%d", this->_physicalCpu);
 	move((h / AModule::_maxY) * this->_Y + 3, (w / AModule::_maxX) * this->_X);
-	printw("Logical CPU: %d", this->_logicalCpu);
+	printw("Logical CPU:\t%d", this->_logicalCpu);
 	move((h / AModule::_maxY) * this->_Y + 4, (w / AModule::_maxX) * this->_X);
-	printw("Frequency CPU: %d", this->_nbCpu);
-	move((h / 2) * this->_Y + 5, (w / 2) * this->_X);
-	printw("Usage user: %f%%", this->_user);
-	move((h / 2) * this->_Y + 6, (w / 2) * this->_X);
-	printw("Usage system: %f%%", this->_sys);
-	move((h / 2) * this->_Y + 7, (w / 2) * this->_X);
-	printw("Usage idle: %f%%", this->_idle);
+	printw("Frequency CPU:\t%d", this->_nbCpu);
+
+	this->ft_putInfo("Usage user", this->_user, 5, h, w);
+	this->ft_putInfo("Usage system", this->_sys, 6, h, w);
+	this->ft_putInfo("Usage idle", this->_idle, 7, h, w);
 }
 
 char const *				Cpu::printInfos(void) const {
@@ -137,10 +162,10 @@ void				Cpu::renderQt(QGridLayout **grid) const {
 	QVBoxLayout *vBox = new QVBoxLayout;
 	QGroupBox *groupBox = new QGroupBox( QString::fromStdString(this->getName()) );
 	(*grid)->addWidget(groupBox, this->getX(), this->getY());
-	
+
 	QLabel *name = new QLabel( QString::fromStdString(this->printInfos()));
 	vBox->addWidget(name);
-	
+
 	vBox->addStretch(2);
 	groupBox->setLayout(vBox);
 

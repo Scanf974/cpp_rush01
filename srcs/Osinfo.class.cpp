@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 15:33:07 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/28 16:30:51 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 20:08:25 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ void                Osinfo::getInfos(std::string result) {
 
 void				Osinfo::renderNcurses(int h, int w) const {
 	move((h / AModule::_maxY) * this->_Y + 1, (w / AModule::_maxX) * this->_X);
-	printw("Release: %s", this->_release.c_str());
+	printw("Release:\t%s", this->_release.c_str());
 	move((h / AModule::_maxY) * this->_Y + 2, (w / AModule::_maxX) * this->_X);
-	printw("Model: %s", this->_model.c_str());
+	printw("Model:\t%s", this->_model.c_str());
 }
 
 char const * 				Osinfo::printInfos(void) const{

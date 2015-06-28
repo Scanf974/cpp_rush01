@@ -6,18 +6,13 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 10:46:39 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 16:00:07 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 20:09:02 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <sys/sysctl.h>
-#include <sys/types.h>
-#include <sys/param.h>
-#include <sys/utsname.h>
-#include <unistd.h>
+
 #include "Hostname.class.hpp"
-#include "IMonitorModule.class.hpp"
 #include "GKrellM.class.hpp"
 #include "AModule.class.hpp"
 #include "Date.class.hpp"
@@ -25,53 +20,28 @@
 #include "Ram.class.hpp"
 #include "Cpu.class.hpp"
 #include "NetworkThroughput.class.hpp"
+#include "Processes.class.hpp"
 #include <string.h>
 
-void	sysinfstr(char const  *str)
-{
-	size_t		size;
-	char		buf[256];
-
-	size = sizeof buf;
-	sysctlbyname(str, buf, &size, NULL, 0);
-	dprintf(1, "%s\n", buf);
-}
-
-void	sysinfint(char const *str)
-{
-	int			i;
-	size_t		size_int;
-
-	size_int = sizeof i;
-	sysctlbyname(str, &i, &size_int, NULL, 0);
-	dprintf(1, "%i\n", i);
-}
 
 int		main(int ac, char **av)
 {
-	(void)av;
-	(void)ac;
-/*
-	int mib[2], i;
-	size_t len;
 
-	mib[0] = CTL_HW;
-	mib[1] = HW_MEMSIZE;
-	len = sizeof(i);
-	sysctl(mib, 2, &i, &len, NULL, 0);
-	printf("%d\n" ,i);
-*/
-
-	int		ll;
 	GKrellM				g;
-	AModule *ram = new Ram(2, 1);
-	AModule *date = new Date(1, 0);
-	AModule *host = new Hostname(2, 0);
-	AModule *cpu = new Cpu(0, 1);
-	AModule *os = new Osinfo(1, 1);
-	AModule *net = new NetworkThroughput(0, 0); 
+	AModule				*tuteur = new Ram(4, 3); 
+	(void)tuteur;
 
-	std::cout << "0: Consol" << std::endl;
+	AModule				*host = new Hostname(1, 1);
+	AModule				*date = new Date(3, 1);
+	AModule				*cpu = new Cpu(1, 2);
+	AModule				*ram = new Ram(3, 2);
+	AModule				*os = new Osinfo(3, 3);
+	AModule				*net = new NetworkThroughput(1, 3); 
+	AModule				*proc = new Processes(2, 1); 
+
+	int					ll;
+
+	std::cout << "0: Console" << std::endl;
 	std::cout << "1: Graphic" << std::endl;
 	std::cin >> ll;
 
@@ -81,6 +51,7 @@ int		main(int ac, char **av)
 	g.addModule(cpu);
 	g.addModule(host);
 	g.addModule(net);
+	g.addModule(proc);
 
 	if (ll == 0)
 		g.init_curses();

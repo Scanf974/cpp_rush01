@@ -6,13 +6,15 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 14:44:31 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 16:35:05 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 19:01:52 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "GKrellM.class.hpp"
 #include "AModule.class.hpp"
 #include <ncurses.h>
+
+
 
 /*-------------- Constructors -------------*/
 GKrellM::GKrellM(void) {
@@ -59,6 +61,28 @@ void			GKrellM::init_curses(void) {
 	curs_set(0);
 	keypad(stdscr, TRUE);
 	getmaxyx(stdscr, this->_height, this->_width);
+	start_color();
+
+	init_color(COLOR_ORANGE, 245 * 3, 128 * 3, 34 * 3);
+	init_color(COLOR_GREEN, 143 * 3, 181 * 3, 0 * 3);
+	init_color(COLOR_RED, 214 * 3, 62 * 3, 18 * 3);
+	init_color(COLOR_TITLE, 0 * 3, 146 * 3, 148 * 3);
+	init_pair(COLOR_ORANGE, 0, COLOR_ORANGE);
+	init_pair(COLOR_GREEN, 0, COLOR_GREEN);
+	init_pair(COLOR_RED, 0, COLOR_RED);
+	init_pair(COLOR_TITLE, COLOR_WHITE, COLOR_TITLE);
+}
+
+void			GKrellM::init_Qt(int ac, char **av) {
+
+	this->_height = 1000;
+	this->_width = 800;
+	this->_app = new QApplication(ac, av);
+	this->_win = new QWidget();
+	this->_win->setWindowTitle("ZAZ loves cats !");
+	this->_win->setFixedSize(this->_width, this->_height);
+	this->_grid = new QGridLayout();
+	this->_win->setLayout(this->_grid);
 }
 
 void			GKrellM::handleEvent(int ch) {
@@ -113,7 +137,9 @@ void			GKrellM::render(int lib) {
 			{
 				(*beg)->getInfos(result);
 				move((this->_height / AModule::_maxY) * (*beg)->getY(), (this->_width / AModule::_maxX) * (*beg)->getX());
-				printw("--- Module: %s ---", (*beg)->getName().c_str());
+				attron(COLOR_PAIR(COLOR_TITLE));
+				printw(" --- Module: %s --- ", (*beg)->getName().c_str());
+				attroff(COLOR_PAIR(COLOR_TITLE));
 				(*beg)->renderNcurses(this->_height, this->_width);
 			}
 			refresh();
@@ -121,6 +147,7 @@ void			GKrellM::render(int lib) {
 	}
 	else
 	{
+		result = this->getTop();
 		for (; beg != end; beg++)
 		{
 			(*beg)->getInfos(result);
@@ -128,18 +155,6 @@ void			GKrellM::render(int lib) {
 		}
 		this->show();
 	}
-}
-
-void			GKrellM::init_Qt(int ac, char **av) {
-
-	this->_height = 500;
-	this->_width = 550;
-	this->_app = new QApplication(ac, av);
-	this->_win = new QWidget();
-	this->_win->setWindowTitle("ZAZ loves cats !");
-	this->_win->setFixedSize(this->_width, this->_height);
-	this->_grid = new QGridLayout();
-	this->_win->setLayout(this->_grid);
 }
 
 void	GKrellM::show( void ) {

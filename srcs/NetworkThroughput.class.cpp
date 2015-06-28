@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/28 15:24:15 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/28 16:30:29 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 17:40:46 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,9 @@ void                NetworkThroughput::getInfos(std::string result) {
 }
 
 void				NetworkThroughput::renderNcurses(int h, int w) const {
-	move((h / 2) * this->_Y + 1, (w / 2) * this->_X);
+	move((h / AModule::_maxY) * this->_Y + 1, (w / AModule::_maxX) * this->_X);
 	printw("Network packets: %d/%dG in", this->_in1, this->_in2);
-	move((h / 2) * this->_Y + 2, (w / 2) * this->_X);
+	move((h / AModule::_maxY) * this->_Y + 2, (w / AModule::_maxX) * this->_X);
 	printw("Network packets: %d/%dM out", this->_out1, this->_out2);
 }
 
