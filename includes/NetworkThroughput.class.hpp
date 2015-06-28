@@ -16,13 +16,14 @@
 class NetworkThrough
 {
 public:
-	NetworkThrough( void );
-
+	NetworkThrough( int x, int y );
 	virtual ~NetworkThrough( void );
 
-	NetworkThrough & operator=( NetworkThrough const & rhs );
+	
+
 private:
 	NetworkThrough( NetworkThrough const & src );
+	NetworkThrough & operator=( NetworkThrough const & rhs );
 };
 
 #endif

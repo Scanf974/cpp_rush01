@@ -52,6 +52,7 @@ int		main(int ac, char **av)
 	AModule *date = new Date(1, 0);
 	AModule *os = new Osinfo(0, 1);
 	AModule *cpu = new Cpu(1, 1);
+	AModule *net = new NetworkThrough(1, 2); 
 
 	std::cout << "0: Consol" << std::endl;
 	std::cout << "1: Graphic" << std::endl;
