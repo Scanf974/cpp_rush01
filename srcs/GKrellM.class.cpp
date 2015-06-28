@@ -6,11 +6,12 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 14:44:31 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 13:17:51 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 15:47:19 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "GKrellM.class.hpp"
+#include "AModule.class.hpp"
 #include <ncurses.h>
 
 /*-------------- Constructors -------------*/
@@ -54,15 +55,20 @@ void			GKrellM::init_curses(void) {
 	initscr();
 	cbreak();
 	noecho();
+	nodelay(stdscr, true);
 	curs_set(0);
 	keypad(stdscr, TRUE);
 	getmaxyx(stdscr, this->_height, this->_width);
 }
 
+void			GKrellM::handleEvent(int ch) {
+	if (ch == 27) {
+		endwin();
+		exit(0);
+	}
+}
+
 void			GKrellM::addModule(AModule *module) {
-
-
-
 	this->_module.push_back(module);
 }
 
@@ -72,10 +78,14 @@ void			GKrellM::render(int lib) {
 	std::list<AModule *>::iterator		beg = tmp.begin();
 	std::list<AModule *>::iterator		end = tmp.end();
 
+	int		ch;
+
 	if (lib == 0)
 	{
 		while (1)
 		{
+			while ((ch = getch()) != ERR)
+				this->handleEvent(ch);
 			std::list<AModule *>		tmp = this->_module;
 			std::list<AModule *>::iterator		beg = tmp.begin();
 			std::list<AModule *>::iterator		end = tmp.end();
@@ -84,7 +94,7 @@ void			GKrellM::render(int lib) {
 			for (; beg != end; beg++)
 			{
 				(*beg)->getInfos();
-				move((this->_height / 2) * (*beg)->getY(), (this->_width / 2) * (*beg)->getX());
+				move((this->_height / AModule::_maxY) * (*beg)->getY(), (this->_width / AModule::_maxX) * (*beg)->getX());
 				printw("--- Module: %s ---", (*beg)->getName().c_str());
 				(*beg)->renderNcurses(this->_height, this->_width);
 			}

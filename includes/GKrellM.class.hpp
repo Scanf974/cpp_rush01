@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 14:36:28 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 12:59:10 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 15:45:54 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ class    GKrellM
 
 		void        addModule(AModule* module);
 
+		void		handleEvent(int ch);
 		void        init_curses(void);
 		void        init_Qt(int ac, char **av);
 		void        show( void );

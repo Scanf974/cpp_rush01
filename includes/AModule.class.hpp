@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 17:13:10 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/28 01:02:00 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 14:40:12 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ class AModule : public IMonitorModule, public IMonitorDisplay
 		virtual void	renderNcurses( int h, int w ) const = 0;
 		virtual char const	*printInfos( void ) const = 0;	
 		virtual void	renderQt( void ) const = 0;
+		static int			_maxX;
+		static int			_maxY;
 
 	private:
 		AModule(void);

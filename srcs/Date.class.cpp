@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 16:36:26 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/28 01:00:45 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 14:32:00 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ void                Date::getInfos(void) {
 }
 
 void				Date::renderNcurses(int h, int w) const {
-	move((h / 2) * this->_Y + 1, (w / 2) * this->_X);
+	move((h / AModule::_maxY) * this->_Y + 1, (w / AModule::_maxX) * this->_X);
 	printw("Date: %s", this->_date.c_str());
-	move((h / 2) * this->_Y + 2, (w / 2) * this->_X);
+	move((h / AModule::_maxY) * this->_Y + 2, (w / AModule::_maxX) * this->_X);
 	printw("Time: %s", this->_time.c_str());
 }
 

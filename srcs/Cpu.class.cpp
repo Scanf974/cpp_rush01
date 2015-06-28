@@ -66,13 +66,13 @@ void                Cpu::getInfos(void) {
 }
 
 void				Cpu::renderNcurses(int h, int w) const {
-	move((h / 2) * this->_Y + 1, (w / 2) * this->_X);
+	move((h / AModule::_maxY) * this->_Y + 1, (w / AModule::_maxX) * this->_X);
 	printw("Number CPU: %d", this->_nbCpu);
-	move((h / 2) * this->_Y + 2, (w / 2) * this->_X);
+	move((h / AModule::_maxY) * this->_Y + 2, (w / AModule::_maxX) * this->_X);
 	printw("Physical CPU: %d", this->_physicalCpu);
-	move((h / 2) * this->_Y + 3, (w / 2) * this->_X);
+	move((h / AModule::_maxY) * this->_Y + 3, (w / AModule::_maxX) * this->_X);
 	printw("Logical CPU: %d", this->_logicalCpu);
-	move((h / 2) * this->_Y + 4, (w / 2) * this->_X);
+	move((h / AModule::_maxY) * this->_Y + 4, (w / AModule::_maxX) * this->_X);
 	printw("Frequency CPU: %d", this->_nbCpu);
 }
 

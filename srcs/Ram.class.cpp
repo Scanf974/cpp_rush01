@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/28 12:06:13 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 14:17:17 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 14:34:35 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ void				Ram::getInfos(void) {
 }
 
 void				Ram::renderNcurses(int h, int w) const {
-	move((h / 2) * this->_Y + 1, (w / 2) * this->_X);
+	move((h / AModule::_maxY) * this->_Y + 1, (w / AModule::_maxX) * this->_X);
 	printw("%dM Used (%dM wired)", this->_used, this->_wired);
-	move((h / 2) * this->_Y + 2, (w / 2) * this->_X);
+	move((h / AModule::_maxY) * this->_Y + 2, (w / AModule::_maxX) * this->_X);
 	printw("%dM unused", this->_unused);
 }
 
