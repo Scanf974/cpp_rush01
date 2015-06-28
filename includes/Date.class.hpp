@@ -35,6 +35,7 @@ class Date : public AModule
 		Date & operator=( Date const & rhs );
 
 		std::string		_time;
+		std::string		_date;
 };
 
 #endif

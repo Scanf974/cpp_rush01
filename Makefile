@@ -594,7 +594,8 @@ main.o: main.cpp includes/Hostname.class.hpp \
 		../Qt/5.4/clang_64/lib/QtWidgets.framework/Versions/5/Headers/qslider.h \
 		includes/Date.class.hpp \
 		includes/Osinfo.class.hpp \
-		includes/Ram.class.hpp
+		includes/Ram.class.hpp \
+		includes/Cpu.class.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 Amodule.class.o: srcs/Amodule.class.cpp includes/AModule.class.hpp \

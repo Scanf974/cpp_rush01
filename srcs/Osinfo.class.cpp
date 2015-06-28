@@ -67,7 +67,7 @@ void                Osinfo::getInfos(void) {
 
 void				Osinfo::renderNcurses(int h, int w) const {
 	move((h / 2) * this->_Y + 1, (w / 2) * this->_X);
-	printw("Release : %s", this->_release.c_str());
+	printw("Release: %s", this->_release.c_str());
 	move((h / 2) * this->_Y + 2, (w / 2) * this->_X);
 	printw("Model: %s", this->_model.c_str());
 }
@@ -78,7 +78,7 @@ char const * 				Osinfo::printInfos(void) const{
 
 	str = "Release: \n";
 	str += this->_release;
-	str += "\nModel: \n";
+	str += "\n\nModel: \n";
 	str += this->_model;
 
 	return (str.c_str());

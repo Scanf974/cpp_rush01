@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 14:44:31 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 12:58:55 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 13:17:51 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /*-------------- Constructors -------------*/
 GKrellM::GKrellM(void) {
 
-	//init_Qt(ac ,av);
+
 	//std::cout << "GKrellM: Default constructor" << std::endl;
 	return ;
 }
@@ -103,7 +103,7 @@ void			GKrellM::render(int lib) {
 			QLabel *name = new QLabel( QString::fromStdString((*beg)->printInfos()));
 			vBox->addWidget(name);
 
-			vBox->addStretch(3);
+			vBox->addStretch(2);
 			groupBox->setLayout(vBox);
 		}
 		this->show();
@@ -113,9 +113,10 @@ void			GKrellM::render(int lib) {
 void			GKrellM::init_Qt(int ac, char **av) {
 
 	this->_height = 500;
-	this->_width = 700;
+	this->_width = 550;
 	this->_app = new QApplication(ac, av);
 	this->_win = new QWidget();
+	this->_win->setWindowTitle("ZAZ loves cats !");
 	this->_win->setFixedSize(this->_width, this->_height);
 	this->_grid = new QGridLayout();
 	this->_win->setLayout(this->_grid);

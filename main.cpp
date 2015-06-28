@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 10:46:39 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 12:59:32 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 13:17:26 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 #include "Date.class.hpp"
 #include "Osinfo.class.hpp"
 #include "Ram.class.hpp"
+#include "Cpu.class.hpp"
 #include <string.h>
 
 void	sysinfstr(char const  *str)
@@ -62,19 +63,19 @@ int		main(int ac, char **av)
 
 	int		ll;
 	GKrellM				g;
-	AModule *host = new Hostname(0, 0);
-	AModule *ram = new Ram(1, 0);
+	AModule *ram = new Ram(0, 0);
 	AModule *date = new Date(0, 1);
-	AModule *os = new Osinfo(1, 1);
+	AModule *os = new Osinfo(1, 0);
+	AModule *cpu = new Cpu(1, 1);
 
 	std::cout << "0: Consol" << std::endl;
 	std::cout << "1: Graphic" << std::endl;
 	std::cin >> ll;
 
-	g.addModule(host);
 	g.addModule(ram);
 	g.addModule(date);
 	g.addModule(os);
+	g.addModule(cpu);
 	if (ll == 0)
 		g.init_curses();
 	else
