@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 10:46:39 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 14:53:57 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 16:00:07 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 #include "Osinfo.class.hpp"
 #include "Ram.class.hpp"
 #include "Cpu.class.hpp"
+#include "NetworkThroughput.class.hpp"
 #include <string.h>
 
 void	sysinfstr(char const  *str)
@@ -63,10 +64,12 @@ int		main(int ac, char **av)
 
 	int		ll;
 	GKrellM				g;
-	AModule *ram = new Ram(0, 1);
-	AModule *date = new Date(1, 1);
-	AModule *os = new Osinfo(2, 1);
-	AModule *cpu = new Cpu(3, 1);
+	AModule *ram = new Ram(2, 1);
+	AModule *date = new Date(1, 0);
+	AModule *host = new Hostname(2, 0);
+	AModule *cpu = new Cpu(0, 1);
+	AModule *os = new Osinfo(1, 1);
+	AModule *net = new NetworkThroughput(0, 0); 
 
 	std::cout << "0: Consol" << std::endl;
 	std::cout << "1: Graphic" << std::endl;
@@ -76,6 +79,8 @@ int		main(int ac, char **av)
 	g.addModule(date);
 	g.addModule(os);
 	g.addModule(cpu);
+	g.addModule(host);
+	g.addModule(net);
 
 	if (ll == 0)
 		g.init_curses();

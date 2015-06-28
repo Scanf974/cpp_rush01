@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RAM.class.hpp                                      :+:      :+:    :+:   */
+/*   Ram.class.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -24,7 +24,7 @@ class Ram : public AModule
 
 		virtual void		getInfos(void);
 		virtual void		renderNcurses(int h, int w) const;
-		virtual void		renderQt(void) const;
+		virtual void		renderQt(QGridLayout **grid) const;
 		virtual char const	*printInfos(void) const;
 
 	private:

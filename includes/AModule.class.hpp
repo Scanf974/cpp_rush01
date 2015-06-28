@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 17:13:10 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/28 14:40:12 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 15:55:06 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 
 #include "IMonitorDisplay.class.hpp"
 #include "IMonitorModule.class.hpp"
+#include <QApplication>
+#include <QPushButton>
+#include <QGroupBox>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QWidget>
+#include <QLabel>
+#include <QLineEdit>
+#include <QProgressBar>
+#include <QSlider>
 #include <iostream>
 
 class AModule : public IMonitorModule, public IMonitorDisplay
@@ -31,7 +41,7 @@ class AModule : public IMonitorModule, public IMonitorDisplay
 		virtual void	getInfos(void) = 0;
 		virtual void	renderNcurses( int h, int w ) const = 0;
 		virtual char const	*printInfos( void ) const = 0;	
-		virtual void	renderQt( void ) const = 0;
+		virtual void	renderQt( QGridLayout **grid ) const = 0;
 		static int			_maxX;
 		static int			_maxY;
 

@@ -6,7 +6,7 @@
 /*   By: bsautron <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 14:44:31 by bsautron          #+#    #+#             */
-/*   Updated: 2015/06/28 15:47:19 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 15:53:34 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void			GKrellM::handleEvent(int ch) {
 }
 
 void			GKrellM::addModule(AModule *module) {
+
 	this->_module.push_back(module);
 }
 
@@ -106,15 +107,7 @@ void			GKrellM::render(int lib) {
 		for (; beg != end; beg++)
 		{
 			(*beg)->getInfos();
-			QVBoxLayout *vBox = new QVBoxLayout;
-			QGroupBox *groupBox = new QGroupBox( QString::fromStdString((*beg)->getName()) );
-			this->_grid->addWidget(groupBox, (*beg)->getX(), (*beg)->getY());
-
-			QLabel *name = new QLabel( QString::fromStdString((*beg)->printInfos()));
-			vBox->addWidget(name);
-
-			vBox->addStretch(2);
-			groupBox->setLayout(vBox);
+			(*beg)->renderQt(&this->_grid);
 		}
 		this->show();
 	}

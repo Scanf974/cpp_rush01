@@ -15,16 +15,6 @@
 
 # include <iostream>
 # include <list>
-# include <QApplication>
-# include <QPushButton>
-# include <QGroupBox>
-# include <QHBoxLayout>
-# include <QVBoxLayout>
-# include <QWidget>
-# include <QLabel>
-# include <QLineEdit>
-# include <QProgressBar>
-# include <QSlider>
 # include "AModule.class.hpp"
 
 class    GKrellM

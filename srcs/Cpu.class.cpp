@@ -60,8 +60,43 @@ void                Cpu::getInfos(void) {
 	this->_logicalCpu = i;
 
 	sysctlbyname("hw.cpufrequency", &i, &size_int, NULL, 0);
-	this->_frequencyCpu = i;	
+	this->_frequencyCpu = i;
 	
+
+	int			len;
+	FILE* 		pipe = popen("top -l 1 -n 0 ", "r");
+	char 		buffer[128];
+	std::string	result;
+
+	if (!pipe)
+		return ;
+	while(!feof(pipe)) {
+		if (fgets(buffer, 128, pipe) != NULL)
+			result += buffer;
+	}
+	pclose(pipe);
+
+	len =  result.find("SharedLibs") - result.find("CPU");
+	char const * tmp = result.substr(result.find("CPU"), len).c_str();
+	int			nb = 0;
+
+	for (int i = 0; tmp[i]; i++)
+	{
+		if (isdigit(tmp[i]))
+		{
+			if (nb == 0)
+				this->_user = std::atof(&tmp[i]);
+			else if (nb == 1)
+				this->_sys = std::atof(&tmp[i]);
+			else if (nb == 2)
+				this->_idle = std::atof(&tmp[i]);
+			else
+				return ;
+			while (isdigit(tmp[i]) || tmp[i] == '.') i++;
+			nb++;
+		}
+	}
+
 	return ;
 }
 
@@ -74,6 +109,12 @@ void				Cpu::renderNcurses(int h, int w) const {
 	printw("Logical CPU: %d", this->_logicalCpu);
 	move((h / AModule::_maxY) * this->_Y + 4, (w / AModule::_maxX) * this->_X);
 	printw("Frequency CPU: %d", this->_nbCpu);
+	move((h / 2) * this->_Y + 5, (w / 2) * this->_X);
+	printw("Usage user: %f%%", this->_user);
+	move((h / 2) * this->_Y + 6, (w / 2) * this->_X);
+	printw("Usage system: %f%%", this->_sys);
+	move((h / 2) * this->_Y + 7, (w / 2) * this->_X);
+	printw("Usage idle: %f%%", this->_idle);
 }
 
 char const *				Cpu::printInfos(void) const {
@@ -96,7 +137,17 @@ char const *				Cpu::printInfos(void) const {
 }
 
 
-void				Cpu::renderQt(void) const {
+void				Cpu::renderQt(QGridLayout **grid) const {
+
+	QVBoxLayout *vBox = new QVBoxLayout;
+	QGroupBox *groupBox = new QGroupBox( QString::fromStdString(this->getName()) );
+	(*grid)->addWidget(groupBox, this->getX(), this->getY());
+	
+	QLabel *name = new QLabel( QString::fromStdString(this->printInfos()));
+	vBox->addWidget(name);
+	
+	vBox->addStretch(2);
+	groupBox->setLayout(vBox);
 
 }
 

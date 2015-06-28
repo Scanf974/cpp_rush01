@@ -84,6 +84,16 @@ char const * 				Osinfo::printInfos(void) const{
 	return (str.c_str());
 }
 
-void				Osinfo::renderQt(void) const {
+void				Osinfo::renderQt(QGridLayout **grid) const {
+
+	QVBoxLayout *vBox = new QVBoxLayout;
+	QGroupBox *groupBox = new QGroupBox( QString::fromStdString(this->getName()) );
+	(*grid)->addWidget(groupBox, this->getX(), this->getY());
+	
+	QLabel *name = new QLabel( QString::fromStdString(this->printInfos()));
+	vBox->addWidget(name);
+	
+	vBox->addStretch(2);
+	groupBox->setLayout(vBox);
 
 }

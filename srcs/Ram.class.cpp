@@ -16,6 +16,7 @@
 #include <ncurses.h>
 #include <streambuf>
 #include <string>
+#include <sstream>
 
 /*-------------- Constructors -------------*/
 Ram::Ram(int x, int y) : AModule("RAM", x, y) {
@@ -89,14 +90,35 @@ void				Ram::renderNcurses(int h, int w) const {
 	printw("%dM unused", this->_unused);
 }
 
-void				Ram::renderQt(void) const {
+void				Ram::renderQt(QGridLayout **grid) const {
+
+	QVBoxLayout *vBox = new QVBoxLayout;
+	QGroupBox *groupBox = new QGroupBox( QString::fromStdString(this->getName()) );
+	(*grid)->addWidget(groupBox, this->getX(), this->getY());
+
+	QLabel *name = new QLabel( QString::fromStdString(this->printInfos()));
+	vBox->addWidget(name);
+
+	vBox->addStretch(2);
+	groupBox->setLayout(vBox);
 
 }
 
 char const			* Ram::printInfos(void) const {
-//	std::string		str;
 
-//	str = this->_str;
-//	return (str.c_str());
-	return (0);
+	std::ostringstream 	ss;
+	std::string 		str;
+
+	ss << "Ram used:\n";
+	ss << this->_used;
+	ss << "M ( ";
+	ss << this->_wired;
+	ss << "M wired ) \n\n";
+	ss << "Ram unused: \n";
+	ss << this->_unused;
+	ss << "M";
+
+	str = ss.str();
+
+	return (str.c_str());
 }

@@ -28,7 +28,7 @@ class Hostname : public AModule
 		virtual void			getInfos(void);
 		virtual void			renderNcurses(int h, int w) const;
 		virtual	char const 		*printInfos(void) const;
-		virtual void			renderQt(void) const;
+		virtual void			renderQt(QGridLayout **grid) const;
 
 
 
