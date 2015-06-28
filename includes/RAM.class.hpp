@@ -6,7 +6,7 @@
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 11:24:25 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/28 12:38:53 by bsautron         ###   ########.fr       */
+/*   Updated: 2015/06/28 14:17:47 by bsautron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ class Ram : public AModule
 		Ram & operator=( Ram const & rhs );
 		Ram( Ram const & src );
 
-		std::string			_str;
+		int			_used;
+		int			_wired;
+		int			_unused;
 };
 
 #endif
